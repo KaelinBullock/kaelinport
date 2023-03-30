@@ -12,9 +12,10 @@ import {
    MenuList,
    menuButton,
    IconButton,
-   useColorModeValue
+   useColorModeValue,
+   MenuButton
 } from '@chakra-ui/react'
-import { HumburgerIcon } from '@chakra-ui/icons'
+import { HamburgerIcon, HumburgerIcon } from '@chakra-ui/icons'
 
 const LinkItem = ({ href, path, children}) => {
    const active = path === href
@@ -67,13 +68,41 @@ const Navbar = props => {
                flexGrow={1}
                mt={{ base: 4, nmd: 0 }}
             >
-               <LinkItem href="/works" path={path}>
+               <Link href="/works" path={path}>
                   Works
-               </LinkItem>
-               <LinkItem href="/posts" path={path}>
+               </Link>
+               <Link href="/posts" path={path}>
                   Posts
-               </LinkItem>
+               </Link>
             </Stack>
+
+            {/* Not sure how it know s this is for mobile */}
+            <Box flex={1} align="right"> 
+               <Box ml={2} display={{base: 'inline-block', md:'none'}}>
+                  <Menu>
+                     <MenuButton 
+                        as={IconButton} 
+                        icon={<HamburgerIcon />} 
+                        ariant="outline" 
+                        aria-label="Options" 
+                     />
+                     <MenuList>
+                        <Link href='/' passHref>
+                           <MenuItem as={Link}>About</MenuItem>
+                        </Link>
+                        <Link href='/works' passHref>
+                           <MenuItem as={Link}>Works</MenuItem>
+                        </Link>
+                        <Link href='/posts' passHref>
+                           <MenuItem as={Link}>Posts</MenuItem>
+                        </Link>
+                        <MenuItem as={Link} href="http://www.kaelin-home.com">
+                           View Source
+                        </MenuItem>
+                     </MenuList>
+                  </Menu>
+               </Box>
+            </Box>
          </Container>
       </Box>
    )
