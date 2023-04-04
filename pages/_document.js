@@ -4,15 +4,11 @@ import theme from '../lib/theme'
 
 export default class Document extends NextDocument {
   render() {
-   let theme = 1;
-   theme = theme.config.initialColorMode;
-
     return (
-      
       <Html lang="en">
         <Head />
         <body>
-          <ColorModeScript initialColorMode={theme} />
+          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Main />
           <NextScript />
         </body>

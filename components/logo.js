@@ -24,10 +24,12 @@ const LogoBox = styled.span`
 const Logo = () => {
    const footPrintImg = `/apple-touch-icon${useColorModeValue('', '-dark')}.png`
   return (
-    (<Link href="/" scroll={false}>
+    (<Link 
+    href="/" 
+    scroll={false}>
 
       <LogoBox >
-        <Image src={footPrintImg} width={20} height={20} alt="logo"/>
+        {/* <Image src={footPrintImg} width={20} height={20} alt="logo"/> */}
         <Text
           color={useColorModeValue('gray.800', 'whiteAlpha.900')}
           fontFamily='M PLUS Rounded 1c", sans-serif'
