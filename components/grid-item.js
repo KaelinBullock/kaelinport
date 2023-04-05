@@ -42,11 +42,12 @@ export const WorkGridItem = ({ children, id, title, thumbnail }) => (
    </LinkBox>
  )
  
-export const GridItemStyle = () => (
-   <Global styles={ `
-      grid-item-thumbnail {
+ export const GridItemStyle = () => (
+   <Global
+     styles={`
+       .grid-item-thumbnail {
          border-radius: 12px;
-      }
-      `}
+       }
+     `}
    />
-)
+ )
