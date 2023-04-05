@@ -1,5 +1,18 @@
-import { Container, Box, Heading, Image, useColorModeValue, chakra } from '@chakra-ui/react';
+import { 
+   Button,
+   Container,
+   Box,
+   Heading,
+   Image,
+   useColorModeValue,
+   chakra, 
+   Link
+} from '@chakra-ui/react';
 import Section from '../components/section.js'
+import Paragraph from '../components/paragraph.js'
+import { ChevronRightIcon } from '@chakra-ui/icons';
+import { BioSection, BioYear } from '../components/bio.js';
+
 const ProfileImage = chakra(Image, {
    shouldForwardProp: prop => ['width', 'height', 'src', 'alt'].includes(prop)
  })
@@ -40,9 +53,35 @@ const Page = () => {
             <Heading as="h3" variant="section-title">
                Work
             </Heading>
-            <p>
-               Paragraph
-            </p>
+            <Paragraph>
+               Hello, I'm a full stack developer, from Little Rock Arkansas.
+               Feel Free to contact me. My focus is in back-end, but I also have knowledge of front end.
+               My best skills are Java and Typescript.  I have made many APIs.
+               <Link href='/works/music'>
+                  Music
+               </Link>
+            </Paragraph>
+            <Box align='center' my={4}>
+               <Link href='/works'>
+                  <Button rightIcon={<ChevronRightIcon />} colorScheme='teal'>
+                     My Portfolio
+                  </Button>
+               </Link>
+            </Box>
+        </Section>
+
+        <Section delay={0.2}>
+            <Heading as='h3' variant='section-title'>
+               Bio
+            </Heading>
+            <BioSection>
+               <BioYear>1994</BioYear>
+               Born in Little Rock, Arkansas
+            </BioSection>
+            <BioSection>
+               <BioYear>2018</BioYear>
+               Received Computer Science degree from University of Arkansas
+            </BioSection>
         </Section>
       </Container>
    )
