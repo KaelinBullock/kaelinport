@@ -12,7 +12,22 @@ const Works = () => {
          </Heading>
 
          <SimpleGrid columns={[1, 1, 2]} gap={6}>
-            <Section>
+            <Section delay={0.3}>
+               <WorkGridItem id="inkdrop" title='Inkdrop' thumbnail={thumbInkDrop}>
+                  A markdown note-taking app
+               </WorkGridItem>
+            </Section>
+            <Section delay={0.3}>
+               <WorkGridItem id="inkdrop" title='Inkdrop' thumbnail={thumbInkDrop}>
+                  A markdown note-taking app
+               </WorkGridItem>
+            </Section>
+            <Section delay={0.3}>
+               <WorkGridItem id="inkdrop" title='Inkdrop' thumbnail={thumbInkDrop}>
+                  A markdown note-taking app
+               </WorkGridItem>
+            </Section>
+            <Section delay={0.3}>
                <WorkGridItem id="inkdrop" title='Inkdrop' thumbnail={thumbInkDrop}>
                   A markdown note-taking app
                </WorkGridItem>
