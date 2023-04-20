@@ -6,13 +6,15 @@ import { Box } from '@chakra-ui/react';
 
 //TODO change with for different screens, change the 36?
 const Controls = ({ isPlaying, repeat, setRepeat, shuffle, setShuffle, currentSongs, handlePlayPause, handlePrevSong, handleNextSong }) => (
-  <Box display='flex' alignItems='center' justifyContent='space-around' w={36} className="flex items-center justify-around md:w-36 lg:w-52 2xl:w-80">
-    <BsArrowRepeat size={20} color={repeat ? 'red' : 'white'} onClick={() => setRepeat((prev) => !prev)}/>
+  <Box display='flex' alignItems='center' justifyContent='space-around' w={36}>
+    <Box display={{base: 'none', sm: 'block'}}>
+      <BsArrowRepeat className='display:"none"' size={20} color={repeat ? 'red' : 'white'} onClick={() => setRepeat((prev) => !prev)}/>
+    </Box>
     {currentSongs?.length && <MdSkipPrevious size={30} color="#FFF" className="cursor-pointer" onClick={handlePrevSong} />}
     {isPlaying ? (
       <BsFillPauseFill size={45} color="#FFF" onClick={handlePlayPause} className="cursor-pointer" />
     ) : (
-      <BsFillPlayFill size={45} color="#FFF" onClick={handlePlayPause} className="cursor-pointer" />
+      <BsFillPlayFill  size={45} color="#FFF" onClick={handlePlayPause} className="cursor-pointer" />
     )}
     {currentSongs?.length && <MdSkipNext size={30} color="#FFF" className="cursor-pointer" onClick={handleNextSong} />}
     <Box display={{base: 'none', sm: 'block'}}>

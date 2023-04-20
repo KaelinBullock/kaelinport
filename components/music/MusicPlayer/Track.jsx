@@ -3,10 +3,10 @@ import React from 'react';
 
 const Track = ({ isPlaying, isActive, activeSong }) => (
   <Box  display='flex' alignItems='center' justifyContent='flex-start'>
-    <Box h={16} w={16} mr={4} display={{base: 'none', sm: 'block'}} className={`${isPlaying && isActive ? 'animate-[spin_3s_linear_infinite]' : ''} hidden sm:block h-16 w-16 mr-4`}>
+    <Box h={16} w={16} mr={4} display={{base: 'none', sm: 'flex'}} className={`${isPlaying && isActive ? 'animate-[spin_3s_linear_infinite]' : ''} hidden sm:block h-16 w-16 mr-4`}>
       <Image borderRadius='full' src={activeSong?.images?.coverart} alt="cover art" className="rounded-full" />
     </Box>
-    <Box maxW='full'>
+    <Box>
       <Text
         overflow='hidden'
         textOverflow='ellipsis'

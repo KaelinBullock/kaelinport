@@ -61,11 +61,12 @@ const MusicPlayer = props => {
   };
 
   return (
-    <Box position='relative' px={{base: 8, sm: 12, md: 8}} w='full' display='flex' justifyContent='space-between'>
-      <Box display='flex' maxW='20%' alignItems='center'>
+    <Box position='relative'  w='full' display='flex' justifyContent='space-between' alignContent='center' alignItems='center'>
+      
+      <Box display='flex' alignItems='center' justifyContent='flex-start' maxW='20%' ml={8}>
         <Track isPlaying={isPlaying} isActive={isActive} activeSong={activeSong}/>
       </Box>
-      <Box display='flex' flexDir='column' alignItems='center' justifyContent='center'>
+      <Box display='flex' flexDir='column' alignSelf='center' alignItems='center'>
         <Controls
           isPlaying={isPlaying}
           isActive={isActive}
@@ -96,9 +97,9 @@ const MusicPlayer = props => {
           onEnded={handleNextSong}
           onTimeUpdate={(event) => setAppTime(event.target.currentTime)}
           onLoadedData={(event) => setDuration(event.target.duration)}
-        />
-      </Box>
-      <Box display={{base: 'none', sm: 'block', lg: 'block'}}>
+        /> 
+     </Box>
+      <Box display={{base: 'none', sm: 'flex'}} mr={8}>
         <VolumeBar value={volume} min="0" max="1" onChange={(event) => setVolume(event.target.value)} setVolume={setVolume} />
       </Box>
     </Box>
