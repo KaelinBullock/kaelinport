@@ -31,7 +31,7 @@ const Page = () => {
                mt={{ base: 4, md: 0 }}
                ml={{ md: 6 }}
                textAlign="center"
-               >
+            >
                   <Box
                   borderColor="whiteAlpha.800"
                   borderWidth={2}
@@ -74,6 +74,28 @@ const Page = () => {
 
             <Section delay={0.2}>
                   <Heading as='h3' variant='section-title'>
+                     Skills
+                  </Heading>
+                  <BioSection>
+                     <BioYear>Java</BioYear>
+                     My strongest skill created many APIs
+                  </BioSection>
+                  <BioSection>
+                     <BioYear>Spring</BioYear>
+                  </BioSection>
+                  <BioSection>
+                     <BioYear>Javascript</BioYear>
+                  </BioSection>
+                  <BioSection>
+                     <BioYear>Angular</BioYear>
+                  </BioSection>
+                  <BioSection>
+                     <BioYear>SQL</BioYear>
+                  </BioSection>
+            </Section>
+
+            <Section delay={0.2}>
+                  <Heading as='h3' variant='section-title'>
                      Bio
                   </Heading>
                   <BioSection>
@@ -83,6 +105,14 @@ const Page = () => {
                   <BioSection>
                      <BioYear>2018</BioYear>
                      Received Computer Science degree from University of Arkansas
+                  </BioSection>
+                  <BioSection>
+                     <BioYear>2018</BioYear>
+                     Software Engineer at Logistics Company
+                  </BioSection>
+                  <BioSection>
+                     <BioYear>2022</BioYear>
+                     Started freelancing
                   </BioSection>
             </Section>
          </Container>

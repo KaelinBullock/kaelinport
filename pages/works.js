@@ -15,23 +15,8 @@ const Works = () => {
 
             <SimpleGrid columns={[1, 1, 2]} gap={6}>
                <Section delay={0.3}>
-                  <WorkGridItem id="inkdrop" title='Inkdrop' thumbnail={thumbInkDrop}>
-                     A markdown note-taking app
-                  </WorkGridItem>
-               </Section>
-               <Section delay={0.3}>
-                  <WorkGridItem id="inkdrop" title='Inkdrop' thumbnail={thumbInkDrop}>
-                     A markdown note-taking app
-                  </WorkGridItem>
-               </Section>
-               <Section delay={0.3}>
-                  <WorkGridItem id="inkdrop" title='Inkdrop' thumbnail={thumbInkDrop}>
-                     A markdown note-taking app
-                  </WorkGridItem>
-               </Section>
-               <Section delay={0.3}>
-                  <WorkGridItem id="inkdrop" title='Inkdrop' thumbnail={thumbInkDrop}>
-                     A markdown note-taking app
+                  <WorkGridItem id="music" title='Music App' thumbnail={thumbInkDrop}>
+                     Made in React using APIs
                   </WorkGridItem>
                </Section>
             </SimpleGrid>

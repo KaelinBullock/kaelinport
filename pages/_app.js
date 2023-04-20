@@ -3,9 +3,12 @@ import Layout from '../components/layouts/main';
 import Fonts from '../components/fonts'
 import theme from '../lib/theme'
 import { AnimatePresence } from 'framer-motion'
+import { store } from '../redux/store';
+import { Provider } from 'react-redux';
 
 const Website = ({ Component, pageProps, router}) => {
    return (
+      <Provider store={store}>
       <ChakraProvider theme={theme}>
          {/* //this fonts thing is really cool */}
          <Fonts />
@@ -15,6 +18,7 @@ const Website = ({ Component, pageProps, router}) => {
             </AnimatePresence>
          </Layout>
       </ChakraProvider>
+      </Provider>
    )
 }
 
