@@ -9,7 +9,7 @@ const Seekbar = ({ value, min, max, onInput, setSeekTime, appTime }) => {
     <Box display={{base:'none', sm:'flex'}} alignItems='center' className="hidden sm:flex flex-row items-center">
       <Button type="button" onClick={() => setSeekTime(appTime - 5)} 
         display='block'
-        ml={4}
+        mx={4}
         textColor='white'
         className="hidden lg:mr-4 lg:block text-white">
         -

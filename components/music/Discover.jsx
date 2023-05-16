@@ -1,19 +1,23 @@
-import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Error } from '../music/Error';
-import { Loader } from '../music/Loader';
-import { SongCard } from '../music/SongCard';
+import Loader from '../music/Loader';
 import { selectGenreListId } from '../../redux/features/playerSlice';
 import { useGetSongsByGenreQuery } from '../../redux/services/shazamCore';
 import { genres } from '../assets/constants';
+import { Box, Heading, Select } from '@chakra-ui/react';
+
+import SongCard from '../music/SongCard';
+import Layout from '../layouts/animation-layout';
 
 const Discover = () => {
+
   const dispatch = useDispatch();
   const { genreListId } = useSelector((state) => state.player);
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data, isFetching, error } = useGetSongsByGenreQuery(genreListId || 'POP');
 
+  if (isFetching){ console.log('is fetching..')}
   if (isFetching) return <Loader title="Loading songs..." />;
 
   if (error) return <Error />;
@@ -21,20 +25,25 @@ const Discover = () => {
   const genreTitle = genres.find(({ value }) => value === genreListId)?.title;
 
   return (
-    <div className="flex flex-col">
-      <div className="w-full flex justify-between items-center sm:flex-row flex-col mt-4 mb-10">
-        <h2 className="font-bold text-3xl text-white text-left">Discover {genreTitle}</h2>
-
-        <select
+    <Layout>
+    <Box display='flex' flexDir='column' px={4}>
+      <Box w='full' display='flex' justifyContent={{base:'center', md:'space-between'}} alignItems='center' mb={10} pr={{base:'none', md:'1rem'}} flexDir={{base:'column', md:'row'}}>
+        <Heading as='h2' fontWeight='bold' fontSize='1.875rem' lineHeight='2.25rem' color='white' textAlign={{base:'center', md:'left'}}  p={{base:'20px', sm:'none'}}>Discover {genreTitle}</Heading>
+        <Select
           onChange={(e) => dispatch(selectGenreListId(e.target.value))}
           value={genreListId || 'pop'}
-          className="bg-black text-gray-300 p-3 text-sm rounded-lg outline-none sm:mt-0 mt-5"
+          backgroundColor='black'
+          color='gray.300'
+          fontSize='.875rem'
+          lineHeight='1.25rem' 
+          borderRadius='.5rem'
+          w='150px'
         >
           {genres.map((genre) => <option key={genre.value} value={genre.value}>{genre.title}</option>)}
-        </select>
-      </div>
+        </Select>
+      </Box>
 
-      <div className="flex flex-wrap sm:justify-start justify-center gap-8">
+      <Box display='flex' flexWrap='wrap' justifyContent='center' gap={8}>
         {data?.map((song, i) => (
           <SongCard
             key={song.key}
@@ -45,9 +54,10 @@ const Discover = () => {
             i={i}
           />
         ))}
-      </div>
-    </div>
-  );
-};
+      </Box>
+    </Box>
+    </Layout>
+  )
+}
 
-export default Discover;
+export default Discover

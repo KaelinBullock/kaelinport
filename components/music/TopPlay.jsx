@@ -1,6 +1,5 @@
 /* eslint-disable import/no-unresolved */
 import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode } from 'swiper';
@@ -11,7 +10,7 @@ import { useGetTopChartsQuery } from '../../redux/services/shazamCore';
 
 import 'swiper/css';
 import 'swiper/css/free-mode';
-import { Box, Divider, Heading, Image, Text, Textarea } from '@chakra-ui/react';
+import { Box, Heading, Image, Link, Text, Textarea } from '@chakra-ui/react';
 
 //TODO fix links ans swiper
 const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handlePlayClick }) => (
@@ -76,10 +75,6 @@ const TopPlay = () => {
   let data  = validateSongData();
   const divRef = useRef(null);
 
-  useEffect(() => {
-    divRef.current.scrollIntoView({ behavior: 'smooth' });
-  });
-
   const topPlays = data?.slice(0, 5);
 
   const handlePauseClick = () => {
@@ -96,9 +91,9 @@ const TopPlay = () => {
       <Box w='full' display='flex' flexDir='column'>
         <Box w='full' display='flex' flexDir='row' justifyContent='space-between' alignItems='center'>
           <Heading as='h2' textColor={'white'} fontWeight='bold' fontSize='1.5rem' lineHeight='1.5rem'>Top Charts</Heading>
-          {/* <Link to="/top-charts"> */}
+          <Link to="/top-charts" color='white' _hover={{textDecoration:'none'}}>
             <p className="text-gray-300 text-base cursor-pointer">See more</p>
-          {/* </Link> */}
+          </Link>
         </Box>
 
         <div className="mt-4 flex flex-col gap-1">
@@ -117,13 +112,6 @@ const TopPlay = () => {
       </Box>
 
       <div className="w-full flex flex-col mt-8">
-        <div className="flex flex-row justify-between items-center">
-          <h2 className="text-white font-bold text-2xl">Top Artists</h2>
-          {/* <Link to="/top-artists"> */}
-            <p className="text-gray-300 text-base cursor-pointer">See more</p>
-          {/* </Link> */}
-        </div>
-
         <Swiper
           slidesPerView="auto"
           spaceBetween={15}

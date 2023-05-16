@@ -18,6 +18,9 @@ const Works = () => {
                   <WorkGridItem id="music" title='Music App' thumbnail={thumbInkDrop}>
                      Made in React using APIs
                   </WorkGridItem>
+                  <WorkGridItem id="shipment-api" title='Shipment Api' thumbnail={thumbInkDrop}>
+                     Made in React using APIs
+                  </WorkGridItem>
                </Section>
             </SimpleGrid>
          </Container>

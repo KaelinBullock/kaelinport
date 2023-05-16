@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import PlayPause from './PlayPause';
 import { playPause, setActiveSong } from '../../redux/features/playerSlice';
+import { Box, Image, Link, Text } from '@chakra-ui/react';
 
 const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
   const dispatch = useDispatch();
@@ -18,9 +18,9 @@ const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
   };
 
   return (
-    <div className="flex flex-col w-[250px] p-4 bg-white/5 bg-opacity-80 backdrop-blur-sm animate-slideup rounded-lg cursor-pointer">
-      <div className="relative w-full h-56 group">
-        <div className={`absolute inset-0 justify-center items-center bg-black bg-opacity-50 group-hover:flex ${activeSong?.title === song.title ? 'flex bg-black bg-opacity-70' : 'hidden'}`}>
+    <Box padding={4} display='flex' flexDir='column' w='250px' Text={4} backgroundColor='whiteAlpha.100' borderRadius='.5rem' cursor='pointer'>
+      <Box position='relative' w='full' h='14rem' _groupActive={true} className="relative w-full h-56 group">
+        <Box position='absolute' inset={0} justifyContent='center' alignItems='center' backgroundColor='black' opacity='.75' display='none' sx={activeSong?.title === song?.title ? {display:'flex'} : {display: 'none', _groupHover:{display:'flex'}}} _groupHover={{display:'flex'}} >
           <PlayPause
             isPlaying={isPlaying}
             activeSong={activeSong}
@@ -28,23 +28,23 @@ const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
             handlePause={handlePauseClick}
             handlePlay={handlePlayClick}
           />
-        </div>
-        <img alt="song_img" src={song.images?.coverart} className="w-full h-full rounded-lg" />
-      </div>
+        </Box>
+        <Image alt="song_img" src={song.images?.coverart} w='full' h='full' rounded='.5rem' className="w-full h-full rounded-lg" />
+      </Box>
 
-      <div className="mt-4 flex flex-col">
-        <p className="font-semibold text-lg text-white truncate">
-          <Link to={`/songs/${song?.key}`}>
+      <Box mt={4} display='flex' flexDirection='column' className="mt-4 flex flex-col">
+        <Text fontWeight='semibold' fontSize='1.25rem' lineHeight='1.75rem' color='white' overflow='hidden' textOverflow='ellipsis' whiteSpace='nowrap' className="font-semibold text-lg text-white truncate">
+          <Link to={`/songs/${song?.key}`} color='white' _hover={{textDecoration:'none'}}>
             {song.title}
           </Link>
-        </p>
-        <p className="text-sm truncate text-gray-300 mt-1">
-          <Link to={song.artists ? `/artists/${song?.artists[1]?.adamid}` : '/top-artists'}>
+        </Text>
+        <Text fontSize='.875rem' color='white' textColor='white' lineHeight='1.25rem' overflow='hidden' textOverflow='ellipsis' whiteSpace='nowrap' mt={1} className="text-sm truncate text-gray-300 mt-1">
+          <Link to={song.artists ? `/artists/${song?.artists[1]?.adamid}` : '/top-artists'} color='white' _hover={{textDecoration:'none'}}>
             {song.subtitle}
           </Link>
-        </p>
-      </div>
-    </div>
+        </Text>
+      </Box>
+    </Box>
   );
 };
 
