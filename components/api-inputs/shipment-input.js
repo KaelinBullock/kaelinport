@@ -1,50 +1,63 @@
 import React, { useState } from "react";
 
-import { Container, Heading, Divider, Box, Text, Textarea, Button, Input, useColorModeValue, RadioGroup, Stack, Radio, TableContainer, Table, Thead, Tr, Th, TableCaption, Tbody, Td, Tfoot } from "@chakra-ui/react";
+import { Container, Heading, Divider, Box, Text, Textarea, Button, Input, useColorModeValue, RadioGroup, Stack, Radio, TableContainer, Table, Thead, Tr, Th, TableCaption, Tbody, Td, Tfoot, Select } from "@chakra-ui/react";
+import { getContactsList } from "../../redux/services/shipmentsService";
+import DropdownMenu from "./DropdownMenu";
+import KeyValue from "./key-value";
 
-//create shipment input for full shipment
-const ShipmentInput = ({payload}) => {
+//TODO add delivery date
+const ShipmentInput = ({setPayload}) => {
    const [shipment, setShipment] = useState({
-      company:{
-         location:{
-            name:"",
-            street:'',
-            suite:'',
-            city:'',
-            state:'',
-            zipcode:'',
-            timezone:'',
-            latitude:'',
-            longitude:'',
-            locationType:''
-         }
-      }
+      name: '',
+      contact: null
    });
 
-   // React.useEffect(() => {
-   //    setPayload(prevState => ({
-   //       ...prevState,
-   //       'location': location
-   //    }));
-   // }, [shipment]);
+   const [contacts, setContacts] = React.useState(null);
+
+   const setContactOnShipment = (contact) => {
+      console.log(contact)
+      setShipment(prevState => ({
+         ...prevState,
+         contact
+   }));
+   }
+
+   const setShipmentValues = (e) => {
+      const { name, value } = e.target;
+      console.log(name, value);
+      setShipment(prevState => ({
+            ...prevState,
+            [name]: value
+      }));
+   }
+
+   React.useEffect(() => {
+      console.log('its running')
+      getContactsList(setContacts)
+   }, []);
+
+   React.useEffect(() => {
+      setPayload(prevState => ({
+         ...prevState,
+         shipment
+      }))
+   }, [shipment]);
 
    return (
       <Box mt={4} position='relative' display='flex' maxWidth='full' w='full' flexDir={{base:'column-reverse', sm:'row'}}>
          <Box display='flex' flexDir='column' w='full' borderRadius={8} gap={4} pb={4}>
+            <KeyValue/>
             <Box display='flex' justifyContent='flex-start' alignItems='center' pl={4}>
-               <Text w='150px'>Contact ID:</Text> 
-               <Input placeholder='Contact ID' size='md' value={name} onChange={(e) => setName(e.target.value)}/>
+               <Text w='130px'>Name:</Text> 
+               <Input placeholder='Name' name="name" size='md' value={shipment.name} onChange={(e) => setShipmentValues(e)}/>
             </Box>
             <Box display='flex' justifyContent='flex-start' alignItems='center' pl={4}>
-               <Text w='150px'>Location ID:</Text> 
-               <Input placeholder='Location ID' size='md' value={name} onChange={(e) => setName(e.target.value)}/>
+               <Text w='130px'>Contact:</Text> 
+               <DropdownMenu menuItems={contacts} setValue={setContactOnShipment} style={{width: '100%'}}></DropdownMenu>
             </Box>
          </Box>
       </Box>
    )
 }
-
-
-
 
 export default ShipmentInput

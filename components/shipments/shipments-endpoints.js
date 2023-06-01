@@ -8,14 +8,13 @@ import {
    AccordionIcon,
  } from '@chakra-ui/react'
 
-const Endpoints = (props) => {
+ const GetLabel = () => {return (<a style={{color: '#77ad78'}}>GET</a>)}
+ const PostLabel = () => {return (<a style={{color: '#FCBA04'}}>POST</a>)}
 
-//    constructor(props) {
-//       super(props);
-//   }
+const Endpoints = (props) => {
    return (
       <Accordion defaultIndex={[0]} allowMultiple>
-         <AccordionItem>
+         <AccordionItem cursor='pointer'>
             <h2>
                <AccordionButton>
                   <Box as="span" flex='1' textAlign='left'>
@@ -25,13 +24,13 @@ const Endpoints = (props) => {
                </AccordionButton>
             </h2>
             <AccordionPanel pl={8} pb={4}>
-               <span onClick={() => props.onClick?.('Get Companies')}><a style={{color: 'red'}}>Get</a> Companies</span>
+               <span onClick={() => props.onClick?.('Get Companies')}> <GetLabel/> Companies</span>
             </AccordionPanel>
             <AccordionPanel pl={8}  pb={4}>
-               <span onClick={() => props.onClick?.('Get Company By Name')}><a style={{color: 'red'}}>Get</a> Company by name</span>
+               <span onClick={() => props.onClick?.('Get Company By Name')}> <GetLabel/>  Company by name</span>
             </AccordionPanel>
             <AccordionPanel pl={8} pb={4}>
-               <span onClick={() => props.onClick?.('Save Company')}><a style={{color: 'red'}}>Post</a> Save Company</span>
+               <span onClick={() => props.onClick?.('Save Company')}> <PostLabel/>  Save Company</span>
             </AccordionPanel>
          </AccordionItem>
 
@@ -45,13 +44,13 @@ const Endpoints = (props) => {
                </AccordionButton>
             </h2>
             <AccordionPanel pl={8} pb={4}>
-               <span onClick={() => props.onClick?.('Get Locations')}><a style={{color: 'red'}}>Get</a> Locations</span>
+               <span onClick={() => props.onClick?.('Get Locations')}> <GetLabel/>  Locations</span>
             </AccordionPanel>
             <AccordionPanel pl={8}  pb={4}>
-               <span onClick={() => props.onClick?.('Get Location By Name')}><a style={{color: 'red'}}>Get</a> Location By Name</span>
+               <span onClick={() => props.onClick?.('Get Locations By Name')}> <GetLabel/>  Locations By Name</span>
             </AccordionPanel>
             <AccordionPanel pl={8} pb={4}>
-               <span onClick={() => props.onClick?.('Save Location')}><a style={{color: 'red'}}>Post</a> Save Location</span>
+               <span onClick={() => props.onClick?.('Save Location')}> <PostLabel/>  Save Location</span>
             </AccordionPanel>
          </AccordionItem>
          <AccordionItem>
@@ -64,10 +63,10 @@ const Endpoints = (props) => {
                </AccordionButton>
             </h2>
             <AccordionPanel pl={8}  pb={4}>
-               <span onClick={() => props.onClick?.('Get Shipment')}><a style={{color: 'red'}}>Get</a> Shipment</span>
+               <span onClick={() => props.onClick?.('Get Shipments')}> <GetLabel/>  Shipments</span>
             </AccordionPanel>
             <AccordionPanel pl={8} pb={4}>
-               <span onClick={() => props.onClick?.('Save Shipment')}><a style={{color: 'red'}}>Post</a> Save Shipment</span>
+               <span onClick={() => props.onClick?.('Save Shipment')}> <PostLabel/>  Save Shipment</span>
             </AccordionPanel>
          </AccordionItem>
       </Accordion>

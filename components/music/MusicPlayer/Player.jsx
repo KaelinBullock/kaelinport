@@ -4,7 +4,6 @@ import React, { useRef, useEffect } from 'react';
 const Player = ({ activeSong, isPlaying, volume, seekTime, onEnded, onTimeUpdate, onLoadedData, repeat }) => {
   const ref = useRef(null);
   // eslint-disable-next-line no-unused-expressions
-  console.log(activeSong);
   if (ref.current) {
     if (isPlaying) {
       ref.current.play();

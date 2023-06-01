@@ -10,5 +10,4 @@ export const store = configureStore({
   },
   middleware: (getDefaultMiddleware) => 
   getDefaultMiddleware().concat(shazamCoreApi.middleware),
-  // getDefaultMiddleware().concat(shipmentsService.middleware),
 });

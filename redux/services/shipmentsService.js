@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const url = 'http://ec2-107-22-106-172.compute-1.amazonaws.com:8080';
+
 export function postAuthentication() {
-    axios.post("http://localhost:8080/api/v1/auth/authenticate", {
+    axios.post(`${url}/api/v1/auth/authenticate`, {
       email: 'bigmark@mark.com',
       password: 'password'
     })
@@ -13,19 +15,30 @@ export function postAuthentication() {
    });
 };
 
-export function getCompanyList() {
-     axios.get('http://localhost:8080/api/company/list', { headers: {'Content-Type': 'application/json'} })
+export function getCompanyList(setCompanyList) {
+     axios.get(`${url}/api/company/list`, { headers: {'Content-Type': 'application/json'} })
      .then(response => {      
-        return response.data;
+         setCompanyList(response.data);
      })
      .catch((error) => {
         console.log('error ' + error);
      });
 };
 
-export function getCompanyByName(apiKey, name) {
-   const AuthStr = 'Bearer '.concat(apiKey); 
-      axios.get(`http://localhost:8080/api/company/getCompanyByName${name}`, { headers: { Authorization: AuthStr, 'Content-Type': 'application/json'} })
+export function getCompaniesByName(name, setCompanyList) {
+   axios.get(`${url}/api/company/getCompaniesByName?name=${name}`, { headers: { 'Content-Type': 'application/json'} })
+   .then(response => {      
+      setCompanyList(response.data);
+   })
+   .catch((error) => {
+      console.log('error ' + error);
+   });
+};
+
+ export function saveCompany(company) {
+      axios.post(`${url}/api/company/save`,
+      company,
+      { headers: { 'Content-Type': 'application/json'} })
       .then(response => {      
          return response.data;
       })
@@ -34,24 +47,10 @@ export function getCompanyByName(apiKey, name) {
       });
  };
 
- export function saveCompany(apiKey, company) {
-   const AuthStr = 'Bearer '.concat(apiKey); 
-      axios.post('http://localhost:8080/api/company/save',
-      { company: { company } },
-      { headers: { Authorization: AuthStr, 'Content-Type': 'application/json'} })
+ export function getContactsList(setContact) {
+      axios.get(`${url}/api/contact/list`, { headers: {'Content-Type': 'application/json'} })
       .then(response => {      
-         return response.data;
-      })
-      .catch((error) => {
-         console.log('error ' + error);
-      });
- };
-
- export function getContactsList(apiKey) {
-   const AuthStr = 'Bearer '.concat(apiKey); 
-      axios.get('http://localhost:8080/api/contact/list', { headers: { Authorization: AuthStr, 'Content-Type': 'application/json'} })
-      .then(response => {      
-         return response.data;
+         setContact(response.data);
       })
       .catch((error) => {
          console.log('error ' + error);
@@ -60,7 +59,7 @@ export function getCompanyByName(apiKey, name) {
  
  export function getContactsByName(apiKey, name) {
     const AuthStr = 'Bearer '.concat(apiKey); 
-       axios.get(`http://localhost:8080/api/contact/getcontactByName${name}`, { headers: { Authorization: AuthStr, 'Content-Type': 'application/json'} })
+       axios.get(`http://localhost:8080/api/contact/getcontactByName${name}`, { headers: { 'Content-Type': 'application/json'} })
        .then(response => {      
           return response.data;
        })
@@ -71,9 +70,9 @@ export function getCompanyByName(apiKey, name) {
  
   export function saveContact(apiKey, contact) {
     const AuthStr = 'Bearer '.concat(apiKey); 
-       axios.post('http://localhost:8080/api/contact/save',
-       { contact: { contact } },
-       { headers: { Authorization: AuthStr, 'Content-Type': 'application/json'} })
+       axios.post(`${url}/api/contact/save`,
+         contact,
+       { headers: { 'Content-Type': 'application/json'} })
        .then(response => {      
           return response.data;
        })
@@ -81,58 +80,56 @@ export function getCompanyByName(apiKey, name) {
           console.log('error ' + error);
        });
   };
- export function getLocationList(apiKey) {
-   const AuthStr = 'Bearer '.concat(apiKey); 
-      axios.get('http://localhost:8080/api/contact/list', { headers: { Authorization: AuthStr, 'Content-Type': 'application/json'} })
+ export function getLocationList(setLocation) {
+      axios.get(`${url}/api/location/list`, { headers: {'Content-Type': 'application/json'} })
       .then(response => {      
-         return response.data;
+         console.log('data')
+         console.log(response.data[0].name)
+         setLocation(response.data);
       })
       .catch((error) => {
          console.log('error ' + error);
       });
  };
  
- export function getLocationByName(apiKey, name) {
-    const AuthStr = 'Bearer '.concat(apiKey); 
-       axios.get(`http://localhost:8080/api/contact/getcontactByName${name}`, { headers: { Authorization: AuthStr, 'Content-Type': 'application/json'} })
+ export function getLocationsByName(name, setLocations) {
+       axios.get(`http://localhost:8080/api/location/getLocationsByName?name=${name}`, { headers: { 'Content-Type': 'application/json'} })
        .then(response => {      
-          return response.data;
+         setLocations(response.data);
        })
        .catch((error) => {
           console.log('error ' + error);
        });
   };
  
-  export function saveLocation(apiKey, location) {
-    const AuthStr = 'Bearer '.concat(apiKey); 
-       axios.post('http://localhost:8080/api/contact/save',
-       { location: { location } },
-       { headers: { Authorization: AuthStr, 'Content-Type': 'application/json'} })
+  export function saveLocation(location, setResponse) {
+       axios.post(`${url}/api/location/save`,
+         location,
+       { headers: { 'Content-Type': 'application/json'} })
        .then(response => {      
-          return response.data;
+         setResponse(response.data);
        })
        .catch((error) => {
           console.log('error ' + error);
        });
   };
- export function getShipmentByLocationId(apiKey, locationId) {
-    const AuthStr = 'Bearer '.concat(apiKey); 
-       axios.get(`http://localhost:8080/api/contact/getcontactByName${locationId}`, { headers: { Authorization: AuthStr, 'Content-Type': 'application/json'} })
+
+ export function getShipmentList(setShipment) {
+       axios.get(`http://localhost:8080/api/shipment/list`, { headers: { 'Content-Type': 'application/json'} })
        .then(response => {      
-          return response.data;
+         setShipment(response.data);
        })
        .catch((error) => {
           console.log('error ' + error);
        });
   };
  
-  export function saveShipment(apiKey, shipment) {
-    const AuthStr = 'Bearer '.concat(apiKey); 
-       axios.post('http://localhost:8080/api/contact/save',
-       { contact: { shipment } },
-       { headers: { Authorization: AuthStr, 'Content-Type': 'application/json'} })
+  export function saveShipment(shipment, setResponse) {
+       axios.post(`${url}/api/shipment/save`,
+         shipment,
+       { headers: { 'Content-Type': 'application/json'} })
        .then(response => {      
-          return response.data;
+         setResponse(response.data);
        })
        .catch((error) => {
           console.log('error ' + error);

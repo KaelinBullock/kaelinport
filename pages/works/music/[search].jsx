@@ -2,13 +2,11 @@ import { Container, Heading, SimpleGrid, Divider, Box } from "@chakra-ui/react";
 
 import { useSelector } from 'react-redux';
 
-import Layout from "../../../components/layouts/music-layout";
+import Layout from "../../components/layouts/generic-layout";
 import MusicPlayer from '../../../components/music/MusicPlayer/TrackInfo'
 import TopPlay from '../../../components/music/TopPlay'
 import Searchbar from "../../../components/music/Searchbar";
 import Searchresults from "../../../components/music/Searchresults";
-
-//add searchbar param and put param in placeholder
 
 const Music = () => {
    const { activeSong } = useSelector((state) => state.player);

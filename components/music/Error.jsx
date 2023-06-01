@@ -1,9 +1,10 @@
+import { Box } from '@chakra-ui/react';
 import React from 'react';
 
 const Error = () => (
-  <div className="w-full flex justify-center items-center">
+  <Box display='flex' alignItems='center' justifyContent='center' maxW='full' w='75vw' h='75vh'>
     <h1 className="font-bold text-2xl text-white">Something went wrong. Please try again</h1>
-  </div>
+  </Box>
 );
 
 export default Error;
