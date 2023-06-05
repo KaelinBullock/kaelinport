@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { Container, Heading, Box, Text, Input, RadioGroup, Stack, Radio, TableContainer, Table, Thead, Tr, Th, TableCaption, Tbody, Td, Tfoot, Fade, useDisclosure } from "@chakra-ui/react";
-import { endpoints } from "../assets/constants";
-import Layout from "../layouts/animation-layout";
-import KeyValue from "./key-value";
+import { RadioGroup, Stack, Radio, Box, Text, Input } from '@chakra-ui/react';
+import { endpoints } from '../assets/constants';
+import Layout from '../layouts/animation-layout';
+import KeyValue from './key-value';
 
 //TODO try putting the payload directly in here instead of setting the location then setting the payload
 const LocationInput = ( {currentEndpoint, setPayload} ) => {
-   const [location, setLocation] = useState({name:"", street:'', suite:'', city:'', state:'', zipcode:'', timezone:'', latitude:'', longitude:'', locationType:''});
+   const [location, setLocation] = useState({name:'', street:'', suite:'', city:'', state:'', zipcode:'', timezone:'', latitude:'', longitude:'', locationType:''});
    const handleChange = (e) => {
       
       const { name, value } = e.target;
@@ -15,22 +15,23 @@ const LocationInput = ( {currentEndpoint, setPayload} ) => {
             ...prevState,
             [name]: value
       }));
-   }
+   };
 
    const setLocationType = (type) => {
       setLocation(prevState => ({
          ...prevState,
          'locationType': type
       }));
-   }
+   };
 
    React.useEffect(() => {
       setPayload(prevState => ({
          ...prevState,
          location
-      }))
+      }));
+   // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [location]);
-   const isOpen = true;
+
    return (
       <Box mt={4} position='relative' display='flex' maxWidth='full' w='full' flexDir={{base:'column-reverse', sm:'row'}}>
          <Box display='flex' flexDir='column' w='full' borderRadius={8} gap={4} pb={4}>
@@ -93,7 +94,7 @@ const LocationInput = ( {currentEndpoint, setPayload} ) => {
             
          </Box>
       </Box>
-   )
-}
+   );
+};
 
-export default LocationInput
+export default LocationInput;

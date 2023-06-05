@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react';
 
-import { Container, Heading, Box, Textarea, Button, Fade, useDisclosure, Slide, SlideFade, Collapse } from "@chakra-ui/react";
+import { Container, Heading, Box, Textarea, Button, useDisclosure, Collapse } from '@chakra-ui/react';
 
-import Endpoints from "../../components/shipments/shipments-endpoints";
+import Endpoints from '../../components/shipments/shipments-endpoints';
 
-import CompanyInput from "../../components/api-inputs/company-input";
-import LocationInput from "../../components/api-inputs/location-input";
-import ShipmentInput from "../../components/api-inputs/shipment-input";
-import { endpoints } from "../../components/assets/constants";
-import Layout from "../../components/layouts/animation-layout";
-import { getCompaniesByName, getLocationsByName as getLocationsByName, getLocationList, getCompanyList, saveCompany, getShipmentList, saveLocation, saveShipment } from "../../redux/services/shipmentsService";
+import CompanyInput from '../../components/api-inputs/company-input';
+import LocationInput from '../../components/api-inputs/location-input';
+import ShipmentInput from '../../components/api-inputs/shipment-input';
+import { endpoints } from '../../components/assets/constants';
+import Layout from '../../components/layouts/animation-layout';
+import { getCompaniesByName, getLocationsByName as getLocationsByName, getLocationList, getCompanyList, saveCompany, getShipmentList, saveLocation, saveShipment } from '../../redux/services/shipmentsService';
 
 //host the api
 //figure out front end variables like yml
@@ -33,19 +33,18 @@ function callEndpoint(endpoint, payload, setResponse) {
         saveCompany(payload.company, setResponse);
         break;
       case endpoints.GET_LOCATIONS:
-        getLocationList(setResponse)
+        getLocationList(setResponse);
         break;
       case endpoints.GET_LOCATION_BY_NAME:
-        getLocationsByName(payload.location.name, setResponse)
+        getLocationsByName(payload.location.name, setResponse);
         break;
       case endpoints.SAVE_LOCATION:
-        saveLocation(payload.location, setResponse)
+        saveLocation(payload.location, setResponse);
         break;
       case endpoints.GET_SHIPMENTS:
         getShipmentList(setResponse);
         break;
       case endpoints.SAVE_SHIPMENT:
-         console.log('eywfyeo')
         saveShipment(payload.shipment, setResponse);
         break;
       default:
@@ -71,18 +70,18 @@ function ApiInput(currentEndpoint, setCurrentEndpointPage, setPayload, onOpen, o
          break;
       case endpoints.GET_LOCATION_BY_NAME:
          onOpen();
-         setCurrentEndpointPage(<LocationInput setPayload={setPayload} currentEndpoint={currentEndpoint}/>)
+         setCurrentEndpointPage(<LocationInput setPayload={setPayload} currentEndpoint={currentEndpoint}/>);
          break;
       case endpoints.SAVE_LOCATION:
          onOpen();
-         setCurrentEndpointPage(<LocationInput setPayload={setPayload} currentEndpoint={currentEndpoint}/>)
+         setCurrentEndpointPage(<LocationInput setPayload={setPayload} currentEndpoint={currentEndpoint}/>);
          break;
       case endpoints.GET_SHIPMENTS:
          onClose();
          break;
       case endpoints.SAVE_SHIPMENT:
          onOpen();
-         setCurrentEndpointPage(<ShipmentInput setPayload={setPayload}/>)
+         setCurrentEndpointPage(<ShipmentInput setPayload={setPayload}/>);
          break;
       default:
          return;
@@ -90,7 +89,7 @@ function ApiInput(currentEndpoint, setCurrentEndpointPage, setPayload, onOpen, o
 }
 
 function createTitle(currentEndpoint) {
-   return currentEndpoint
+   return currentEndpoint;
 }
 
 const Shipment = () => {
@@ -114,13 +113,13 @@ const Shipment = () => {
 
    const switchEndpoint = (event) => {
       setCurrentEndpoint(event);
-      ApiInput(event, setCurrentEndpointPage, setPayload, onOpen, onClose, payload)
-   }
+      ApiInput(event, setCurrentEndpointPage, setPayload, onOpen, onClose, payload);
+   };
 
    const sendPayload = () => {
-      var response = JSON.stringify(callEndpoint(currentEndpoint, payload, setResponse), null, "\t");
+      var response = JSON.stringify(callEndpoint(currentEndpoint, payload, setResponse), null, '\t');
       setResponse(response);
-   }
+   };
 
    return (
       <Layout maxWidth='full' w='full'>
@@ -145,14 +144,14 @@ const Shipment = () => {
                      <Button colorScheme='blue' onClick={sendPayload}>Send</Button>
                   </Box>
                   <Box pl={4} h='300px' w='full'>
-                     <Textarea value={JSON.stringify(response, null, "\t")} readOnly cursor='default' h='290px' w='full'>
+                     <Textarea value={JSON.stringify(response, null, '\t')} readOnly cursor='default' h='290px' w='full'>
                      </Textarea>
                   </Box>
                </Box>
             </Box>
          </Container>
       </Layout>
-   )
-}
+   );
+};
 
-export default Shipment
+export default Shipment;

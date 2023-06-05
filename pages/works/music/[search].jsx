@@ -1,12 +1,12 @@
-import { Container, Heading, SimpleGrid, Divider, Box } from "@chakra-ui/react";
+import { Container, Box } from '@chakra-ui/react';
 
 import { useSelector } from 'react-redux';
 
-import Layout from "../../components/layouts/generic-layout";
-import MusicPlayer from '../../../components/music/MusicPlayer/TrackInfo'
-import TopPlay from '../../../components/music/TopPlay'
-import Searchbar from "../../../components/music/Searchbar";
-import Searchresults from "../../../components/music/Searchresults";
+import MusicPlayer from '../../../components/music/MusicPlayer/TrackInfo';
+import TopPlay from '../../../components/music/TopPlay';
+import Searchbar from '../../../components/music/Searchbar';
+import Searchresults from '../../../components/music/Searchresults';
+import Layout from '../../../components/layouts/generic-layout';
 
 const Music = () => {
    const { activeSong } = useSelector((state) => state.player);
@@ -15,7 +15,7 @@ const Music = () => {
       <Layout title="Music" maxWidth='full' w='full'>
          <Container maxWidth='full' w='full'
              sx={activeSong?.title ? {h:'80vh'} : {h:'100vh'}}
-            style={{ overflowY: "scroll" }}//remove this
+            style={{ overflowY: 'scroll' }}//remove this
             css={{
                '&::-webkit-scrollbar': {
                  width: '4px',
@@ -48,7 +48,7 @@ const Music = () => {
             )}      
         </Container>
       </Layout>
-   )
-}
+   );
+};
 
-export default Music
+export default Music;

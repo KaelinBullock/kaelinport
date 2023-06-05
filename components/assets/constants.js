@@ -13,7 +13,7 @@ export const genres = [
   { title: 'Reggae', value: 'REGGAE_DANCE_HALL' },
   { title: 'House', value: 'HOUSE' },
   { title: 'K-Pop', value: 'K_POP' },
-]
+];
 
 export const endpoints = {
   GET_COMPANIES: 'Get Companies',
@@ -24,4 +24,4 @@ export const endpoints = {
   SAVE_LOCATION: 'Save Location',
   GET_SHIPMENTS: 'Get Shipments',
   SAVE_SHIPMENT: 'Save Shipment',
-}
+};

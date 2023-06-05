@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import { Container, Heading, Divider, Box, Text, Textarea, Button, Input, useColorModeValue, RadioGroup, Stack, Radio, TableContainer, Table, Thead, Tr, Th, TableCaption, Tbody, Td, Tfoot, Select } from "@chakra-ui/react";
-import { getContactsList } from "../../redux/services/shipmentsService";
-import DropdownMenu from "./DropdownMenu";
-import KeyValue from "./key-value";
+import { Box, Text, Input } from '@chakra-ui/react';
+import { getContactsList } from '../../redux/services/shipmentsService';
+import DropdownMenu from './DropdownMenu';
+import KeyValue from './key-value';
 
 //TODO add delivery date
 const ShipmentInput = ({setPayload}) => {
@@ -15,32 +15,30 @@ const ShipmentInput = ({setPayload}) => {
    const [contacts, setContacts] = React.useState(null);
 
    const setContactOnShipment = (contact) => {
-      console.log(contact)
       setShipment(prevState => ({
          ...prevState,
          contact
    }));
-   }
+   };
 
    const setShipmentValues = (e) => {
       const { name, value } = e.target;
-      console.log(name, value);
       setShipment(prevState => ({
             ...prevState,
             [name]: value
       }));
-   }
+   };
 
    React.useEffect(() => {
-      console.log('its running')
-      getContactsList(setContacts)
+      getContactsList(setContacts);
    }, []);
 
    React.useEffect(() => {
       setPayload(prevState => ({
          ...prevState,
          shipment
-      }))
+      }));
+   // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [shipment]);
 
    return (
@@ -57,7 +55,7 @@ const ShipmentInput = ({setPayload}) => {
             </Box>
          </Box>
       </Box>
-   )
-}
+   );
+};
 
-export default ShipmentInput
+export default ShipmentInput;

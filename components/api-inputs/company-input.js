@@ -1,28 +1,29 @@
-import React from "react";
+import React from 'react';
 
 
-import { Heading, Box, Text, Input, Select } from "@chakra-ui/react";
-import { getLocationList } from "../../redux/services/shipmentsService";
-import { endpoints } from "../assets/constants";
-import Layout from "../layouts/article";
-import DropdownMenu from "./DropdownMenu";
-import KeyValue from "./key-value";
+import { Box, Text, Input } from '@chakra-ui/react';
+import { getLocationList } from '../../redux/services/shipmentsService';
+import { endpoints } from '../assets/constants';
+import Layout from '../layouts/article';
+import DropdownMenu from './DropdownMenu';
+import KeyValue from './key-value';
 
-const CompanyInput = ({currentEndpoint, payload, setPayload}) => {
+const CompanyInput = ({currentEndpoint, setPayload}) => {
    const [company, setCompany] = React.useState({
       name:'',
    });
    const [locations, setLocations] = React.useState(null);
 
    React.useEffect(() => {
-      getLocationList(setLocations)
+      getLocationList(setLocations);
    }, []);
 
    React.useEffect(() => {
       setPayload(prevState => ({
          ...prevState,
          company
-      }))
+      }));
+   // eslint-disable-next-line react-hooks/exhaustive-deps
    }, [company]);
 
    const setCompanyValues = (e) => {
@@ -31,20 +32,14 @@ const CompanyInput = ({currentEndpoint, payload, setPayload}) => {
             ...prevState,
             [name]: value
       }));
-   }
+   };
 
    const setLocationOnCompany = (location) => {
       setCompany(prevState => ({
             ...prevState,
             location
       }));
-   }
-
-   const variants = {
-      hidden: { opacity: 0, x: 0, y: 20 },
-      enter: { opacity: 1, x: 0, y: 0 },
-      exit: { opacity: 0, x: 0, y: 20 }
-    }
+   };
 
    return (
       <Layout>
@@ -66,7 +61,7 @@ const CompanyInput = ({currentEndpoint, payload, setPayload}) => {
             </Box>
          </Box>
          </Layout>
-   )
-}
+   );
+};
 
-export default CompanyInput
+export default CompanyInput;

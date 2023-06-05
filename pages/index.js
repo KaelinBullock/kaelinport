@@ -8,15 +8,15 @@ import {
    chakra, 
    Link
 } from '@chakra-ui/react';
-import Section from '../components/section.js'
-import Paragraph from '../components/paragraph.js'
+import Section from '../components/section.js';
+import Paragraph from '../components/paragraph.js';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import Layout from '../components/layouts/article.js';
 import { BioSection, BioYear } from '../components/bio.js';
 
 const ProfileImage = chakra(Image, {
    shouldForwardProp: prop => ['width', 'height', 'src', 'alt'].includes(prop)
- })
+ });
 
 const Page = () => {
    return (
@@ -56,11 +56,11 @@ const Page = () => {
                      Work
                   </Heading>
                   <Paragraph>
-                     Hello, I'm a full stack developer, from Little Rock Arkansas.
-                     Feel Free to contact me. My focus is in back-end, but I also have knowledge of front end.
-                     My best skills are Java and Typescript.  I have made many APIs.
-                     <Link href='/works/music'>
-                        Music
+                     Hello, I&#39;m a full stack developer, from Little Rock Arkansas.
+                     Feel Free to contact me. My focus is in back-end, but I can easily switch between back-end and front-end.
+                     My best skills are Java and Typescript.  I have made many APIs. Please take a look at my porfolio:&nbsp;
+                     <Link href='/works'>
+                        Works
                      </Link>
                   </Paragraph>
                   <Box align='center' my={4}>
@@ -78,19 +78,27 @@ const Page = () => {
                   </Heading>
                   <BioSection>
                      <BioYear>Java</BioYear>
-                     My strongest skill created many APIs
+                     My strongest skill. I have created many APIs
                   </BioSection>
                   <BioSection>
                      <BioYear>Spring</BioYear>
+                     The framework I am most familiar with.
                   </BioSection>
                   <BioSection>
                      <BioYear>Javascript</BioYear>
+                     Many years of experience with javascript and typescript
                   </BioSection>
                   <BioSection>
                      <BioYear>Angular</BioYear>
+                     The front end framework I used for most of my career
+                  </BioSection>
+                  <BioSection>
+                     <BioYear>React</BioYear>
+                     I prefer using React and NextJs for the front-end.  My portfolio projects use React.
                   </BioSection>
                   <BioSection>
                      <BioYear>SQL</BioYear>
+                     I have an understanding of SQL and have used it in many Java Spring projects
                   </BioSection>
             </Section>
 
@@ -117,7 +125,7 @@ const Page = () => {
             </Section>
          </Container>
       </Layout>
-   )
-}
+   );
+};
 
 export default Page;

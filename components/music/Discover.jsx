@@ -16,7 +16,8 @@ const Discover = () => {
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data, isFetching, error } = useGetSongsByGenreQuery(genreListId || 'POP');
 
-  if (isFetching){ console.log('is fetching..')}
+  // eslint-disable-next-line no-console
+  if (isFetching){ console.log('is fetching..');}
 
   if (error) return <Error />;
 
@@ -55,7 +56,7 @@ const Discover = () => {
       </Box>
     </Box>
     </Layout>
-  )
-}
+  );
+};
 
-export default Discover
+export default Discover;

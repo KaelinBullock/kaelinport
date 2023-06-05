@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -10,20 +10,13 @@ import Seekbar from './Seekbar';
 import Track from './Track';
 import VolumeBar from './VolumeBar';
 import { Box } from '@chakra-ui/react';
-import Layout from '../../layouts/animation-layout';
 
-//need to create a layout/container for this
-//think about importing whatever css import is being used in the app
-//make things look better
-//add scroll animation for text
-//add spin animation for pic
-
-const MusicPlayer = props => {
+const MusicPlayer = () => {
   const variants = {
     hidden: { opacity: 0, x: 0, y: 20 },
     enter: { opacity: 1, x: 0, y: 0 },
     exit: { opacity: 0, x: -0, y: 20 }
-  }
+  };
   const { activeSong, currentSongs, currentIndex, isActive, isPlaying } = useSelector((state) => state.player);
   const [duration, setDuration] = useState(0);
   const [seekTime, setSeekTime] = useState(0);
@@ -36,9 +29,11 @@ const MusicPlayer = props => {
   useEffect(() => {
     if (currentSongs.length){ dispatch(playPause(true)); 
       
-      if(typeof state !== "undefined")
+      if(typeof state !== 'undefined')
+        // eslint-disable-next-line no-console
         console.log(state);
       }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex]);
 
   const handlePlayPause = () => {

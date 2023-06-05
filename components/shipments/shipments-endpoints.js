@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/react";
+import { Box } from '@chakra-ui/react';
 
 import {
    Accordion,
@@ -6,10 +6,10 @@ import {
    AccordionButton,
    AccordionPanel,
    AccordionIcon,
- } from '@chakra-ui/react'
+ } from '@chakra-ui/react';
 
- const GetLabel = () => {return (<a style={{color: '#77ad78'}}>GET</a>)}
- const PostLabel = () => {return (<a style={{color: '#FCBA04'}}>POST</a>)}
+ const GetLabel = () => {return (<a style={{color: '#77ad78'}}>GET</a>);};
+ const PostLabel = () => {return (<a style={{color: '#FCBA04'}}>POST</a>);};
 
 const Endpoints = (props) => {
    return (
@@ -70,7 +70,7 @@ const Endpoints = (props) => {
             </AccordionPanel>
          </AccordionItem>
       </Accordion>
-   )
-}
+   );
+};
 
-export default Endpoints
+export default Endpoints;

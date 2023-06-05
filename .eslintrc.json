@@ -2,6 +2,16 @@
 	"root": true,
 	"extends": "next",
 	"rules": {
+		// "indent": [
+		// 	"error",
+		// 	3
+		// ],
+		"no-console": 1,
+		"semi": [2, "always"],
+		"quotes": [
+			"error",
+			"single"
+		],
 		"no-unused-vars": [
 			"error",
 			{

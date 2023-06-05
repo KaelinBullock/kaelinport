@@ -1,6 +1,6 @@
-import { forwardRef } from 'react'
-import Logo from './logo'
-import NextLink from 'next/link'
+import { forwardRef } from 'react';
+import Logo from './logo';
+import NextLink from 'next/link';
 import {
    Container,
    Box,
@@ -11,17 +11,16 @@ import {
    Menu,
    MenuItem,
    MenuList,
-   menuButton,
    IconButton,
    useColorModeValue,
    MenuButton
-} from '@chakra-ui/react'
-import { HamburgerIcon, HumburgerIcon } from '@chakra-ui/icons'
-import ThemeToggleButton from './theme-toggle-button'
+} from '@chakra-ui/react';
+import { HamburgerIcon } from '@chakra-ui/icons';
+import ThemeToggleButton from './theme-toggle-button';
 
 const LinkItem = ({ href, path, children}) => {
-   const active = path === href
-   const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900')
+   const active = path === href;
+   const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900');
    return (
          <Link
             as={NextLink}
@@ -32,16 +31,17 @@ const LinkItem = ({ href, path, children}) => {
          >
             {children}
          </Link>
-  )
-}
+  );
+};
 
-//look into this
 const MenuLink = forwardRef((props, ref) => (
    <Link ref={ref} as={NextLink} {...props} />
- ))
+ ));
+
+ MenuLink.displayName = 'MenuLink';
 
 const Navbar = props => {
-   const { path } = props
+   const { path } = props;
    
    return (
       <Box 
@@ -72,7 +72,7 @@ const Navbar = props => {
                width={{base: 'full', md: 'auto'}}
                alignItems='center'
                flexGrow={1}
-               mt={{ base: 4, nmd: 0 }}
+               mt={{ base: 4, md: 2 }}
             >
                <LinkItem 
                href="/works"
@@ -80,9 +80,9 @@ const Navbar = props => {
                   Works
                </LinkItem>
                <LinkItem 
-               href="/posts" 
+               href="https://github.com/KaelinBullock" 
                path={path}>
-                  Posts
+                  GIT
                </LinkItem>
             </Stack>
 
@@ -100,7 +100,8 @@ const Navbar = props => {
                      <MenuList>
                         <MenuItem as={MenuLink} href='/' >About</MenuItem>
                         <MenuItem as={MenuLink} href='/works'>Works</MenuItem>
-                        <MenuItem as={MenuLink} href='/posts' >Posts</MenuItem>
+                        {/* <MenuItem as={MenuLink} href='https://github.com/KaelinBullock' >GIT</MenuItem> */}
+                        {/* <MenuItem as={MenuLink} href='/posts' >Posts</MenuItem> */}
                         <MenuItem as={MenuLink} href="http://www.kaelinb.com">
                            View Source
                         </MenuItem>
@@ -110,7 +111,7 @@ const Navbar = props => {
             </Box>
          </Container>
       </Box>
-   )
-}
+   );
+};
 
-export default Navbar
+export default Navbar;

@@ -1,7 +1,7 @@
 import { Box, Image, Text } from '@chakra-ui/react';
 import React from 'react';
 
-const Track = ({ isPlaying, isActive, activeSong }) => (
+const Track = ({ activeSong }) => (
   
   <Box display='flex' alignItems='center' px={4}>
      <Image h={16} w={16} display={{base:'none', sm:'block'}} borderRadius='full' src={activeSong?.images?.coverart} alt="cover art" className="rounded-full" />

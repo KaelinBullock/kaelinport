@@ -1,4 +1,4 @@
-import { Box, Heading } from "@chakra-ui/react"
+import { Box, Heading } from '@chakra-ui/react';
 
 
 const KeyValue = () => {
@@ -7,7 +7,7 @@ const KeyValue = () => {
          <Heading fontSize='1.375rem'  w='120px'>Key:</Heading> 
          <Heading fontSize='1.375rem'>Value:</Heading>
       </Box>
-   )
-}
+   );
+};
 
-export default KeyValue
+export default KeyValue;

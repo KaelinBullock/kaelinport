@@ -1,9 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 
 import { useGetSongsBySearchQuery } from '../../redux/services/shazamCore';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 import Error from '../../components/music/Error';
 import Loader from '../../components/music/Loader';
 import SongCard from '../../components/music/SongCard';
@@ -12,7 +11,7 @@ import { Box, Heading } from '@chakra-ui/react';
 const Search = () => {
    
   const router = useRouter();
-  const { search } = router.query
+  const { search } = router.query;
 
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data, isFetching, error } = useGetSongsBySearchQuery(search);

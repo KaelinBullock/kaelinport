@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios from 'axios';
 
-const url = 'http://ec2-107-22-106-172.compute-1.amazonaws.com:8080';
+const url = 'http://ec2-user@ec2-52-5-148-232.compute-1.amazonaws.com:8080';
 
 export function postAuthentication() {
     axios.post(`${url}/api/v1/auth/authenticate`, {
@@ -58,7 +58,6 @@ export function getCompaniesByName(name, setCompanyList) {
  };
  
  export function getContactsByName(apiKey, name) {
-    const AuthStr = 'Bearer '.concat(apiKey); 
        axios.get(`http://localhost:8080/api/contact/getcontactByName${name}`, { headers: { 'Content-Type': 'application/json'} })
        .then(response => {      
           return response.data;
@@ -69,7 +68,6 @@ export function getCompaniesByName(name, setCompanyList) {
   };
  
   export function saveContact(apiKey, contact) {
-    const AuthStr = 'Bearer '.concat(apiKey); 
        axios.post(`${url}/api/contact/save`,
          contact,
        { headers: { 'Content-Type': 'application/json'} })
@@ -83,8 +81,8 @@ export function getCompaniesByName(name, setCompanyList) {
  export function getLocationList(setLocation) {
       axios.get(`${url}/api/location/list`, { headers: {'Content-Type': 'application/json'} })
       .then(response => {      
-         console.log('data')
-         console.log(response.data[0].name)
+         console.log('data');
+         console.log(response.data[0].name);
          setLocation(response.data);
       })
       .catch((error) => {
@@ -115,7 +113,7 @@ export function getCompaniesByName(name, setCompanyList) {
   };
 
  export function getShipmentList(setShipment) {
-       axios.get(`http://localhost:8080/api/shipment/list`, { headers: { 'Content-Type': 'application/json'} })
+       axios.get('http://localhost:8080/api/shipment/list', { headers: { 'Content-Type': 'application/json'} })
        .then(response => {      
          setShipment(response.data);
        })

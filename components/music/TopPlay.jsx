@@ -1,16 +1,12 @@
 /* eslint-disable import/no-unresolved */
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { FreeMode } from 'swiper';
 
 import PlayPause from './PlayPause';
 import { playPause, setActiveSong } from '../../redux/features/playerSlice';
 import { useGetTopChartsQuery } from '../../redux/services/shazamCore';
 
-import 'swiper/css';
-import 'swiper/css/free-mode';
-import { Box, Heading, Image, Link, Text, Textarea } from '@chakra-ui/react';
+import { Box, Heading, Image, Link, Text } from '@chakra-ui/react';
 
 //TODO fix links ans swiper
 const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handlePlayClick }) => (
@@ -20,8 +16,8 @@ const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handle
     flexDir='row' 
     alignItems='center' 
     _hover={{
-      background: "#4c426e",
-      color: "teal.500",
+      background: '#4c426e',
+      color: 'teal.500',
     }} 
     style={activeSong?.title === song?.title ? {backgroundColor:'#4c426e'} : {backgroundColor:'transparent'}}
     py={2}
@@ -55,7 +51,8 @@ const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handle
   </Box>
 );
 
-const validateSongData = (jim) => {
+const validateSongData = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { data } = useGetTopChartsQuery();
   let tempData = [];
 
@@ -110,30 +107,6 @@ const TopPlay = () => {
           ))}
         </div>
       </Box>
-
-      <div className="w-full flex flex-col mt-8">
-        <Swiper
-          slidesPerView="auto"
-          spaceBetween={15}
-          freeMode
-          centeredSlides
-          centeredSlidesBounds
-          modules={[FreeMode]}
-          className="mt-4"
-        >
-          {topPlays?.slice(0, 5).map((artist) => (
-            <SwiperSlide
-              key={artist?.key}
-              style={{ width: '25%', height: 'auto' }}
-              className="shadow-lg rounded-full animate-slideright"
-            >
-              {/* <Link to={`/artists/${artist?.artists[0].adamid}`}>
-                <img src={artist?.images?.background} alt="Name" className="rounded-full w-full object-cover" />
-              </Link> */}
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
     </Box>
   );
 };
