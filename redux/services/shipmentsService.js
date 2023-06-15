@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const url = 'https://ec2-3-83-31-121.compute-1.amazonaws.com:8080';
+const url = 'https://kaelinb.com';
 // const url = 'http://localhost:8080';
 
 export function postAuthentication() {
