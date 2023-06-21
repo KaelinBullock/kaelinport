@@ -6,9 +6,8 @@ import PlayPause from './PlayPause';
 import { playPause, setActiveSong } from '../../redux/features/playerSlice';
 import { useGetTopChartsQuery } from '../../redux/services/shazamCore';
 
-import { Box, Heading, Image, Link, Text } from '@chakra-ui/react';
+import { Box, Heading, Image, Link, Text, useColorModeValue } from '@chakra-ui/react';
 
-//TODO fix links ans swiper
 const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handlePlayClick }) => (
   <Box 
     w='full' 
@@ -25,20 +24,13 @@ const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handle
     borderRadius='.5rem'
     cursor='pointer'
     mb={2}>
-    <Heading as='h3' fontWeight='bold' fontSize='1rem' lineHeight='1.5rem' textColor='white' mr={3}>{i + 1}.</Heading>
+    <Heading as='h3' fontWeight='bold' fontSize='1rem' lineHeight='1.5rem' textColor={useColorModeValue('black', 'white')} mr={3}>{i + 1}.</Heading>
     <Box flex='1 1 0%' display='flex' flexDir='row' justifyContent='space-between' alignItems='center'>
       <Image w={20} h={20} borderRadius='.5rem' src={song?.images?.coverart} alt={song?.title} />
       <Box flex='1 1 0%' display='flex' flexDir='column' justifyContent='center' mx={3}>
-        {/* <Link to={`/songs/${song.key}`}> */}
-          <Text fontSize='1.25rem' lineHeight='1.75rem' fontWeight='bold' textColor='white'>
+          <Text fontSize='1.25rem' lineHeight='1.75rem' fontWeight='bold' textColor={useColorModeValue('black', 'white')}>
             {song?.title}
           </Text>
-        {/* </Link> */}
-        {/* <Link to={`/artists/${song?.artists[0].adamid}`}>
-          <p className="text-base text-gray-300 mt-1">
-            {song?.subtitle}
-          </p>
-        </Link> */}
       </Box>
     </Box>
     <PlayPause
@@ -87,10 +79,7 @@ const TopPlay = () => {
     <Box ref={divRef} ml={0} mb={6} flex={1} maxW='full' display='flex' flexDir='column'>
       <Box w='full' display='flex' flexDir='column'>
         <Box w='full' display='flex' flexDir='row' justifyContent='space-between' alignItems='center'>
-          <Heading as='h2' textColor={'white'} fontWeight='bold' fontSize='1.5rem' lineHeight='1.5rem'>Top Charts</Heading>
-          <Link to="/top-charts" color='white' _hover={{textDecoration:'none'}}>
-            <p className="text-gray-300 text-base cursor-pointer">See more</p>
-          </Link>
+          <Heading as='h2' textColor={useColorModeValue('black', 'white')} fontWeight='bold' fontSize='1.5rem' lineHeight='1.5rem' mb={4}>Top Charts</Heading>
         </Box>
 
         <div className="mt-4 flex flex-col gap-1">

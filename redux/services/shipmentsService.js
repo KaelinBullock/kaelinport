@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 const url = 'https://kaelinb.com';
-// const url = 'http://localhost:8080';
 
 export function postAuthentication() {
     axios.post(`${url}/api/v1/auth/authenticate`, {
@@ -59,7 +58,7 @@ export function getCompaniesByName(name, setCompanyList) {
  };
  
  export function getContactsByName(apiKey, name) {
-       axios.get(`http://localhost:8080/api/contact/getcontactByName${name}`, { headers: { 'Content-Type': 'application/json'} })
+       axios.get(`${url}/api/contact/getcontactByName${name}`, { headers: { 'Content-Type': 'application/json'} })
        .then(response => {      
           return response.data;
        })
@@ -92,7 +91,7 @@ export function getCompaniesByName(name, setCompanyList) {
  };
  
  export function getLocationsByName(name, setLocations) {
-       axios.get(`http://localhost:8080/api/location/getLocationsByName?name=${name}`, { headers: { 'Content-Type': 'application/json'} })
+       axios.get(`${url}/api/location/getLocationsByName?name=${name}`, { headers: { 'Content-Type': 'application/json'} })
        .then(response => {      
          setLocations(response.data);
        })

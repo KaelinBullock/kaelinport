@@ -77,7 +77,7 @@ const MusicPlayer = () => {
       <Box position='relative'  w='full' display='flex' justifyContent='space-between' alignContent='center' alignItems='center' opacity='1'>
         <Box display='flex' alignItems='center' justifyContent='flex-start' overflow='hidden'
           textOverflow='ellipsis'
-          whiteSpace='nowrap' w={{base:'50%', md:'35%'}}>
+          whiteSpace='nowrap' w={{base:'50%', md:'35%', lg:'fit-content'}} minWidth='15%'>
           <Track isPlaying={isPlaying} isActive={isActive} activeSong={activeSong}/>
         </Box>
         <Box display='flex' flexDir='column' alignSelf='center' alignItems='center' w={{base:'50%', md:'35%'}} ml={{base:'-35rem', sm:'0', md:'-4rem', lg:'-20rem'}}>

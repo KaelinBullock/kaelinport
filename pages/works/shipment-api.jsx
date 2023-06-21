@@ -11,16 +11,6 @@ import { endpoints } from '../../components/assets/constants';
 import Layout from '../../components/layouts/animation-layout';
 import { getCompaniesByName, getLocationsByName as getLocationsByName, getLocationList, getCompanyList, saveCompany, getShipmentList, saveLocation, saveShipment } from '../../redux/services/shipmentsService';
 
-//host the api
-//figure out front end variables like yml
-//need a better error handler like a pop up
-//need a display and highlight to know which endpoint we selected
-//the text area needs to look better %
-//fix works page
-//fix transitions on endpoints
-//fix light mode
-//clean everything up
-//add a limit to the api
 function callEndpoint(endpoint, payload, setResponse) {
    switch(endpoint) {
       case endpoints.GET_COMPANIES:
@@ -52,7 +42,7 @@ function callEndpoint(endpoint, payload, setResponse) {
     }
 };
 
-function ApiInput(currentEndpoint, setCurrentEndpointPage, setPayload, onOpen, onClose, payload){ //could set and endpoint header here
+function ApiInput(currentEndpoint, setCurrentEndpointPage, setPayload, onOpen, onClose, payload) {
    switch(currentEndpoint) {
       case endpoints.GET_COMPANIES:
          onClose();
@@ -122,14 +112,14 @@ const Shipment = () => {
    };
 
    return (
-      <Layout maxWidth='full' w='full'>
-         <Container maxWidth='full' w='full' p={4}>
+      <Layout title="Shipments API" maxWidth='full' w='full'>
+         <Container maxWidth='full' w='full' p={4}  maxH='100vh' >
             <Box position='relative' display='flex' maxWidth='full' w='full' mb={20} flexDir={{base:'column', md:'row'}}>
                <Box display='flex' flexDir='column' w={{base:'full', md:'100vw', lg:'500px'}} pr={{base:'0', sm:'1rem'}}>
                   <Heading as='h2' fontWeight='bold' fontSize='1.875rem' lineHeight='2.25rem' textAlign={{base:'center', md:'left'}} p={4}>
                      Endpoints
                   </Heading>
-                  <Endpoints onClick={switchEndpoint}/>
+                  <Endpoints onClick={switchEndpoint} setCurrentEndpoint={setCurrentEndpoint}/>
                </Box>
                <Box display='flex' flexDir='column' w={{md:'100vw', lg:'120vw'}} maxW='150vw'>
                   <Collapse in={isOpen}>

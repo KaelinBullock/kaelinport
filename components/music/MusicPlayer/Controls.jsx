@@ -3,8 +3,6 @@ import { MdSkipNext, MdSkipPrevious } from 'react-icons/md';
 import { BsArrowRepeat, BsFillPauseFill, BsFillPlayFill, BsShuffle } from 'react-icons/bs';
 import { Box } from '@chakra-ui/react';
 
-
-//TODO change with for different screens, change the 36?
 const Controls = ({ isPlaying, repeat, setRepeat, shuffle, setShuffle, currentSongs, handlePlayPause, handlePrevSong, handleNextSong }) => (
   <Box display='flex' alignItems='center' justifyContent='space-around' w={36}>
     <Box display={{base: 'none', sm: 'block'}}>

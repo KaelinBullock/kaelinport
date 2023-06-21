@@ -13,7 +13,7 @@ const Layout = ({ children, router }) => {
 
         <Navbar path={router.asPath} />
 
-        <Container maxW="full" pt={14}>
+        <Container maxW="full" pt={16}>
           <NoSsr>
               {/* <VoxelDog /> */}
           </NoSsr>

@@ -21,7 +21,7 @@ const ProfileImage = chakra(Image, {
 const Page = () => {
    return (
       <Layout>
-         <Container>
+         <Container pt={4}>
             <Box borderRadius="lg" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} p={3} mb={6} align="center">
                Hello, I&apos;m a full-stack develooper based in the US!
             </Box>
@@ -58,10 +58,7 @@ const Page = () => {
                   <Paragraph>
                      Hello, I&#39;m a full stack developer, from Little Rock Arkansas.
                      Feel Free to contact me. My focus is in back-end, but I can easily switch between back-end and front-end.
-                     My best skills are Java and Typescript.  I have made many APIs. Please take a look at my porfolio:&nbsp;
-                     <Link href='/works'>
-                        Works
-                     </Link>
+                     My best skills are Java and Typescript.  I have made many APIs. Please take a look at my porfolio.
                   </Paragraph>
                   <Box align='center' my={4}>
                      <Link href='/works'>

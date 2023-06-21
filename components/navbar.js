@@ -48,8 +48,8 @@ const Navbar = props => {
          position="fixed"
          as="nav"
          w="100%"
-         bg={useColorModeValue('#ffffff40', '#20202380')}
-         style={{backdropFilter: 'blur(10px)'}}
+         bg={useColorModeValue('#ffffff40', '#202023')}
+         style={{backdropFilter: 'blur(10px)'}, {zIndex:'1'}}
          {...props}
       >
          <Container 
@@ -100,8 +100,6 @@ const Navbar = props => {
                      <MenuList>
                         <MenuItem as={MenuLink} href='/' >About</MenuItem>
                         <MenuItem as={MenuLink} href='/works'>Works</MenuItem>
-                        {/* <MenuItem as={MenuLink} href='https://github.com/KaelinBullock' >GIT</MenuItem> */}
-                        {/* <MenuItem as={MenuLink} href='/posts' >Posts</MenuItem> */}
                         <MenuItem as={MenuLink} href="http://www.kaelinb.com">
                            View Source
                         </MenuItem>

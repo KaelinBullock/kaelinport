@@ -4,7 +4,7 @@ import { FormControl, Select } from '@chakra-ui/react';
 
 
 const DropdownMenu = ({menuItems, setValue}) => {
-   const onChange = (e) => {//TODO investigate this
+   const onChange = (e) => {
       setValue(JSON.parse(e.target.value));
    };
    return (

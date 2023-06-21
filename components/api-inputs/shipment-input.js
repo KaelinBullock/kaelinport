@@ -5,7 +5,6 @@ import { getContactsList } from '../../redux/services/shipmentsService';
 import DropdownMenu from './DropdownMenu';
 import KeyValue from './key-value';
 
-//TODO add delivery date
 const ShipmentInput = ({setPayload}) => {
    const [shipment, setShipment] = useState({
       name: '',

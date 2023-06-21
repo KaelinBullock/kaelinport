@@ -22,7 +22,7 @@ export const GridItem = ({ children, href, title, thumbnail }) => (
 );
 
 export const WorkGridItem = ({ children, id, title, thumbnail }) => (
-  <Box w="100%" textAlign="center">
+  <Box w="100%" textAlign="center" pb={4}>
     <LinkBox
       as={NextLink}
       href={`/works/${id}`}

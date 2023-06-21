@@ -6,12 +6,65 @@ import {
    AccordionButton,
    AccordionPanel,
    AccordionIcon,
- } from '@chakra-ui/react';
+} from '@chakra-ui/react';
+import { endpoints } from '../assets/constants';
+import React from 'react';
 
  const GetLabel = () => {return (<a style={{color: '#77ad78'}}>GET</a>);};
  const PostLabel = () => {return (<a style={{color: '#FCBA04'}}>POST</a>);};
 
 const Endpoints = (props) => {
+   const [currentEndpoint, setCurrentEndpoint] = React.useState(endpoints.GET_COMPANIES);
+
+   function ChooseEndpoint(value) {
+      
+      props.onClick?.(value);
+      setCurrentEndpoint(value);
+    }
+
+    function EndpointPanel(endpointName) {
+      const endpointNameValue = Object.values(endpointName)[0];
+      
+      let displayName = 'Company';
+      let label = <GetLabel/>;
+      switch(endpointNameValue) {
+         case endpoints.GET_COMPANIES:
+            break;
+         case endpoints.GET_COMPANY_BY_NAME:
+            displayName = 'Company By Name';
+            break;
+         case endpoints.SAVE_COMPANY:
+            label = <PostLabel/>
+            break;
+         case endpoints.GET_LOCATIONS:
+            displayName = 'Locations';
+            break;
+         case endpoints.GET_LOCATION_BY_NAME:
+            displayName = 'Locations By Name';
+            break;
+         case endpoints.SAVE_LOCATION:
+            displayName = 'Save Locations';
+            label = <PostLabel/>
+            break;
+         case endpoints.GET_SHIPMENTS:
+            displayName = 'Shipments';
+            break;
+         case endpoints.SAVE_SHIPMENT:
+            displayName = 'Save Shipments';
+            label = <PostLabel/>
+            break;
+         default:
+            return;
+       }
+
+      return (
+         <AccordionPanel pl={8} pb={4}  style={currentEndpoint === endpointNameValue ? {backgroundColor:'#4c426e'} : {backgroundColor:'transparent'}}>
+            <Box onClick={() => ChooseEndpoint(endpointNameValue, props, setCurrentEndpoint )}> {label} {displayName} </Box>
+         </AccordionPanel>
+      )
+   }
+
+
    return (
       <Accordion defaultIndex={[0]} allowMultiple>
          <AccordionItem cursor='pointer'>
@@ -23,15 +76,9 @@ const Endpoints = (props) => {
                   <AccordionIcon />
                </AccordionButton>
             </h2>
-            <AccordionPanel pl={8} pb={4}>
-               <span onClick={() => props.onClick?.('Get Companies')}> <GetLabel/> Companies</span>
-            </AccordionPanel>
-            <AccordionPanel pl={8}  pb={4}>
-               <span onClick={() => props.onClick?.('Get Company By Name')}> <GetLabel/>  Company by name</span>
-            </AccordionPanel>
-            <AccordionPanel pl={8} pb={4}>
-               <span onClick={() => props.onClick?.('Save Company')}> <PostLabel/>  Save Company</span>
-            </AccordionPanel>
+            <EndpointPanel endpointName={endpoints.GET_COMPANIES} />
+            <EndpointPanel endpointName={endpoints.GET_COMPANY_BY_NAME}/>
+            <EndpointPanel endpointName={endpoints.SAVE_COMPANY}/>
          </AccordionItem>
 
          <AccordionItem>
@@ -43,15 +90,9 @@ const Endpoints = (props) => {
                <AccordionIcon />
                </AccordionButton>
             </h2>
-            <AccordionPanel pl={8} pb={4}>
-               <span onClick={() => props.onClick?.('Get Locations')}> <GetLabel/>  Locations</span>
-            </AccordionPanel>
-            <AccordionPanel pl={8}  pb={4}>
-               <span onClick={() => props.onClick?.('Get Locations By Name')}> <GetLabel/>  Locations By Name</span>
-            </AccordionPanel>
-            <AccordionPanel pl={8} pb={4}>
-               <span onClick={() => props.onClick?.('Save Location')}> <PostLabel/>  Save Location</span>
-            </AccordionPanel>
+            <EndpointPanel endpointName={endpoints.GET_LOCATIONS} />
+            <EndpointPanel endpointName={endpoints.GET_LOCATION_BY_NAME}/>
+            <EndpointPanel endpointName={endpoints.SAVE_LOCATION}/>
          </AccordionItem>
          <AccordionItem>
             <h2>
@@ -62,12 +103,8 @@ const Endpoints = (props) => {
                <AccordionIcon />
                </AccordionButton>
             </h2>
-            <AccordionPanel pl={8}  pb={4}>
-               <span onClick={() => props.onClick?.('Get Shipments')}> <GetLabel/>  Shipments</span>
-            </AccordionPanel>
-            <AccordionPanel pl={8} pb={4}>
-               <span onClick={() => props.onClick?.('Save Shipment')}> <PostLabel/>  Save Shipment</span>
-            </AccordionPanel>
+            <EndpointPanel endpointName={endpoints.GET_SHIPMENTS} />
+            <EndpointPanel endpointName={endpoints.SAVE_SHIPMENT}/>
          </AccordionItem>
       </Accordion>
    );

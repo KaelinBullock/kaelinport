@@ -4,7 +4,7 @@ import Error from '../music/Error';
 import { selectGenreListId } from '../../redux/features/playerSlice';
 import { useGetSongsByGenreQuery } from '../../redux/services/shazamCore';
 import { genres } from '../assets/constants';
-import { Box, Heading, Select } from '@chakra-ui/react';
+import { Box, Heading, Select, useColorModeValue } from '@chakra-ui/react';
 
 import SongCard from '../music/SongCard';
 import Layout from '../layouts/animation-layout';
@@ -27,7 +27,7 @@ const Discover = () => {
     <Layout>
     <Box display='flex' flexDir='column' px={4}>
       <Box w='full' display='flex' justifyContent={{base:'center', md:'space-between'}} alignItems='center' mb={10} pr={{base:'none', md:'1rem'}} flexDir={{base:'column', md:'row'}}>
-        <Heading as='h2' fontWeight='bold' fontSize='1.875rem' lineHeight='2.25rem' color='white' textAlign={{base:'center', md:'left'}}  p={{base:'20px', sm:'none'}}>Discover {genreTitle}</Heading>
+        <Heading as='h2' fontWeight='bold' fontSize='1.875rem' lineHeight='2.25rem' color={useColorModeValue('black', 'white')} textAlign={{base:'center', md:'left'}}  p={{base:'20px', sm:'none'}} pl={0}>Discover {genreTitle}</Heading>
         <Select
           onChange={(e) => dispatch(selectGenreListId(e.target.value))}
           value={genreListId || 'pop'}

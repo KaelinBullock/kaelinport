@@ -9,12 +9,11 @@ import Layout from '../components/layouts/article';
 const Works = () => {
    return (
       <Layout title="Works">
-         <Container>
+         <Container pt={4}>
             <Heading as='h3' fontSize={20} mb={4}>
                Works
             </Heading>
-
-            <SimpleGrid columns={[3, 2, 1]} gap={6}>
+            <SimpleGrid columns={[1, 1, 1]} gap={4}>
                <Section delay={0.3}>
                   <WorkGridItem id="music" title='Music App' thumbnail={worksThumb}>
                      Music app made using public API
