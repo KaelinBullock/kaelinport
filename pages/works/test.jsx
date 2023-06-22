@@ -1,16 +1,9 @@
 import React from 'react';
 
-import { Container, chakra, shouldForwardProp } from '@chakra-ui/react';
-import { motion, isValidMotionProp } from 'framer-motion';
+import { Container } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 
-const ChakraBox = chakra(motion.div, {
-  /**
-   * Allow motion props and non-Chakra props to be forwarded.
-   */
-  shouldForwardProp: (prop) => isValidMotionProp(prop) || shouldForwardProp(prop),
-});
-
-const Track = () => {
+const Test = () => {
 
   return (
     <Container h="100vh" display="flex" alignItems="center" justifyContent="center">
@@ -22,13 +15,13 @@ const Track = () => {
         transition={{
           duration: 5,
           repeat: Infinity,
-          repeatType: "loop"
+          repeatType: 'loop'
         }}
       >
-        I'm Dizzy!
+        Im Dizzy!
       </motion.div>
     </Container>
   );
 };
 
-export default Track;
+export default Test;

@@ -34,7 +34,7 @@ const Endpoints = (props) => {
             displayName = 'Company By Name';
             break;
          case endpoints.SAVE_COMPANY:
-            label = <PostLabel/>
+            label = <PostLabel/>;
             break;
          case endpoints.GET_LOCATIONS:
             displayName = 'Locations';
@@ -44,14 +44,14 @@ const Endpoints = (props) => {
             break;
          case endpoints.SAVE_LOCATION:
             displayName = 'Save Locations';
-            label = <PostLabel/>
+            label = <PostLabel/>;
             break;
          case endpoints.GET_SHIPMENTS:
             displayName = 'Shipments';
             break;
          case endpoints.SAVE_SHIPMENT:
             displayName = 'Save Shipments';
-            label = <PostLabel/>
+            label = <PostLabel/>;
             break;
          default:
             return;
@@ -61,7 +61,7 @@ const Endpoints = (props) => {
          <AccordionPanel pl={8} pb={4}  style={currentEndpoint === endpointNameValue ? {backgroundColor:'#4c426e'} : {backgroundColor:'transparent'}}>
             <Box onClick={() => ChooseEndpoint(endpointNameValue, props, setCurrentEndpoint )}> {label} {displayName} </Box>
          </AccordionPanel>
-      )
+      );
    }
 
 

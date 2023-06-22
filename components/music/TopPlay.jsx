@@ -6,7 +6,7 @@ import PlayPause from './PlayPause';
 import { playPause, setActiveSong } from '../../redux/features/playerSlice';
 import { useGetTopChartsQuery } from '../../redux/services/shazamCore';
 
-import { Box, Heading, Image, Link, Text, useColorModeValue } from '@chakra-ui/react';
+import { Box, Heading, Image, Text, useColorModeValue } from '@chakra-ui/react';
 
 const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handlePlayClick }) => (
   <Box 

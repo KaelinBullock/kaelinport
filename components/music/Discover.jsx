@@ -15,6 +15,7 @@ const Discover = () => {
   const { genreListId } = useSelector((state) => state.player);
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { data, isFetching, error } = useGetSongsByGenreQuery(genreListId || 'POP');
+  const color = useColorModeValue('black', 'white');
 
   // eslint-disable-next-line no-console
   if (isFetching){ console.log('is fetching..');}
@@ -27,7 +28,7 @@ const Discover = () => {
     <Layout>
     <Box display='flex' flexDir='column' px={4}>
       <Box w='full' display='flex' justifyContent={{base:'center', md:'space-between'}} alignItems='center' mb={10} pr={{base:'none', md:'1rem'}} flexDir={{base:'column', md:'row'}}>
-        <Heading as='h2' fontWeight='bold' fontSize='1.875rem' lineHeight='2.25rem' color={useColorModeValue('black', 'white')} textAlign={{base:'center', md:'left'}}  p={{base:'20px', sm:'none'}} pl={0}>Discover {genreTitle}</Heading>
+        <Heading as='h2' fontWeight='bold' fontSize='1.875rem' lineHeight='2.25rem' color={color} textAlign={{base:'center', md:'left'}}  p={{base:'20px', sm:'none'}} pl={0}>Discover {genreTitle}</Heading>
         <Select
           onChange={(e) => dispatch(selectGenreListId(e.target.value))}
           value={genreListId || 'pop'}
