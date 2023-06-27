@@ -17,7 +17,7 @@ const ShipmentInput = ({setPayload}) => {
       setShipment(prevState => ({
          ...prevState,
          contact
-   }));
+      }));
    };
 
    const setShipmentValues = (e) => {

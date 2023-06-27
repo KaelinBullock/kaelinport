@@ -6,19 +6,29 @@ import {
    Image,
    useColorModeValue,
    chakra, 
-   Link
+   Link,
+   useClipboard
 } from '@chakra-ui/react';
 import Section from '../components/section.js';
 import Paragraph from '../components/paragraph.js';
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import Layout from '../components/layouts/article.js';
 import { BioSection, BioYear } from '../components/bio.js';
+import React from 'react';
 
 const ProfileImage = chakra(Image, {
    shouldForwardProp: prop => ['width', 'height', 'src', 'alt'].includes(prop)
  });
 
 const Page = () => {
+   // const placeholder = 'text to be copied...';
+   const { onCopy, setValue, hasCopied } = useClipboard('');
+
+   React.useEffect(() => {
+      setValue('bullockkaelin@gmail.com');
+   }, []);
+   
+
    return (
       <Layout>
          <Container pt={4}>
@@ -58,7 +68,7 @@ const Page = () => {
                   <Paragraph>
                      Hello, I&#39;m a full stack developer, from Little Rock Arkansas.
                      Feel Free to contact me. My focus is in back-end, but I can easily switch between back-end and front-end.
-                     My best skills are Java and Typescript.  I have made many APIs. Please take a look at my porfolio.
+                     My best skills are Java and Typescript.  I have created many APIs. Please take a look at my porfolio. <br/> My email: BullockKaelin@gmail.com
                   </Paragraph>
                   <Box align='center' my={4}>
                      <Link href='/works'>
@@ -97,6 +107,10 @@ const Page = () => {
                      <BioYear>SQL</BioYear>
                      I have an understanding of SQL and have used it in many Java Spring projects
                   </BioSection>
+                  <BioSection>
+                     <BioYear>Misc</BioYear>
+                     I have a lot of experience in QA, creating tests, Unit Tests, Automated tests, debugging.
+                  </BioSection>
             </Section>
 
             <Section delay={0.2}>
@@ -120,6 +134,11 @@ const Page = () => {
                      Started freelancing
                   </BioSection>
             </Section>
+            <Box align='center' my={4}>
+               <Button onClick={onCopy} colorScheme='teal'>
+                  {hasCopied ? 'Copied!' : 'My Email'}
+               </Button>
+            </Box>
          </Container>
       </Layout>
    );
