@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-
-import { Container, Box, Input, FormControl } from '@chakra-ui/react';
+import { Container, Box } from '@chakra-ui/react';
 
 import { useSelector } from 'react-redux';
 

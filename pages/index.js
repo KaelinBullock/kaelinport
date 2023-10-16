@@ -25,7 +25,7 @@ const Page = () => {
 
    React.useEffect(() => {
       setValue('kaelin.bullock@gmail.com');
-   }, []);
+   }, [setValue]);
    
 
    return (
@@ -65,9 +65,9 @@ const Page = () => {
                      Work
                   </Heading>
                   <Paragraph>
-                  Howdy! I'm a dedicated full-stack developer from Little Rock, Arkansas, passionate about crafting seamless digital experiences. 
-                  With expertise in Java and Typescript, I specialize in creating robust APIs. Whether it's back-end intricacies or front-end finesse, 
-                  I've got you covered. Feel free to connect and explore my portfolio. Excited to bring your ideas to life!
+                  Howdy! I&apos;m a dedicated full-stack developer from Little Rock, Arkansas, passionate about crafting seamless digital experiences. 
+                  With expertise in Java and Typescript, I specialize in creating robust APIs. Whether it&apos;s back-end intricacies or front-end finesse, 
+                  I&apos;ve got you covered. Feel free to connect and explore my portfolio. Excited to bring your ideas to life!
                   </Paragraph>
                   <Box align='center' my={4} justifyContent="space-between">
                      <Link href='/works'       style={{ justifyContent: 'space-between', padding: '10px'}} justifyContent="space-between">
@@ -90,7 +90,7 @@ const Page = () => {
                   </BioSection>
                   <BioSection>
                      <BioYear>Spring</BioYear><br/>
-                     I'm well-versed in the Spring framework. Over 4 years of experience.
+                     I&apos;m well-versed in the Spring framework. Over 4 years of experience.
                   </BioSection>
                   <BioSection>
                      <BioYear>Javascript / Typescript</BioYear><br/>
@@ -98,7 +98,7 @@ const Page = () => {
                   </BioSection>
                   <BioSection>
                      <BioYear>Angular</BioYear><br/>
-                     Over 4+ years, I've honed my skills in Angular, utilizing it effectively in various projects.
+                     Over 4+ years, I&apos;ve honed my skills in Angular, utilizing it effectively in various projects.
                   </BioSection>
                   <BioSection>
                      <BioYear>React</BioYear><br/>

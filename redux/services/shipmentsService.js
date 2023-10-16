@@ -81,17 +81,17 @@ export function getCompaniesByName(name, setCompanyList) {
           return response.data;
        })
        .catch((error) => {
+         // eslint-disable-next-line no-console
           console.log('error ' + error);
        });
   };
  export function getLocationList(setLocation) {
       axios.get(`${url}/api/location/list`, { headers: {'Content-Type': 'application/json'} })
-      .then(response => {      
-         console.log('data');
-         console.log(response.data[0].name);
+      .then(response => {
          setLocation(response.data);
       })
       .catch((error) => {
+         // eslint-disable-next-line no-console
          console.log('error ' + error);
       });
  };
@@ -102,6 +102,7 @@ export function getCompaniesByName(name, setCompanyList) {
          setLocations(response.data);
        })
        .catch((error) => {
+         // eslint-disable-next-line no-console
           console.log('error ' + error);
        });
   };
@@ -114,6 +115,7 @@ export function getCompaniesByName(name, setCompanyList) {
          setResponse(response.data);
        })
        .catch((error) => {
+         // eslint-disable-next-line no-console
           console.log('error ' + error);
        });
   };
@@ -124,6 +126,7 @@ export function getCompaniesByName(name, setCompanyList) {
          setShipment(response.data);
        })
        .catch((error) => {
+         // eslint-disable-next-line no-console
           console.log('error ' + error);
        });
   };
@@ -136,6 +139,7 @@ export function getCompaniesByName(name, setCompanyList) {
          setResponse(response.data);
        })
        .catch((error) => {
+         // eslint-disable-next-line no-console
           console.log('error ' + error);
        });
   };

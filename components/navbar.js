@@ -42,24 +42,7 @@ const MenuLink = forwardRef((props, ref) => (
 
 const Navbar = props => {
    const { path } = props;
-   const innerBoxStyles = {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      textAlign: 'center',
-      boxSize: 'full',
-      color: 'white',
-      textShadow: '0 0 20px black',
-      fontWeight: 'bold',
-      fontSize: '20px',
-    }
-    const outerBoxStyles = {
-      boxSize: '250px',
-      p: '10',
-      background:
-        'url(https://picsum.photos/id/1068/200/300) center/cover no-repeat',
-    }
-   
+
    return (
       <Box 
          position="fixed"

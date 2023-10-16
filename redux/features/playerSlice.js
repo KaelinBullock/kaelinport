@@ -29,7 +29,7 @@ const playerSlice = createSlice({
     },
 
     setSearchTerm: (state, action) => {
-      state.searchTerm = action.payload
+      state.searchTerm = action.payload;
     },
 
     nextSong: (state, action) => {

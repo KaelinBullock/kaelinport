@@ -11,10 +11,10 @@ const Searchbar = () => {
 
   const [searchTermTemp, setSearchTermTemp] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = () => {
     if(searchTermTemp) {
       dispatch(setSearchTerm(searchTermTemp));
-      window.history.replaceState(null, "music", `/works/music?search=${searchTermTemp}`);
+      window.history.replaceState(null, 'music', `/works/music?search=${searchTermTemp}`);
     } else {
       dispatch(setSearchTerm(''));
     }
@@ -22,9 +22,9 @@ const Searchbar = () => {
 
   return (
       <form
-        onSubmit={e=> {
+        onSubmit={e => {
           e.preventDefault();
-          handleSubmit(e);
+          handleSubmit();
       }}>
       <Box display='flex' flexDir='row' justifyContent='flex-start' alignItems='center' className="flex flex-row justify-start items-center">
         <Box w={5} h={5} ml={4}>
