@@ -6,7 +6,7 @@ import MusicPlayer from '../../components/music/MusicPlayer/TrackInfo';
 import TopPlay from '../../components/music/TopPlay';
 import Discover from '../../components/music/Discover';
 import Searchbar from '../../components/music/Searchbar';
-import Searchresults from '../../components/music/SearchResults';
+import Searchresults from '../../components/music/Searchresults';
 import Layout from '../../components/layouts/generic-layout';
 
 const Music = () => {
