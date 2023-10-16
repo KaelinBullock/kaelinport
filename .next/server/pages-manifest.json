@@ -3,7 +3,5 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/works/[music]": "pages/works/[music].js",
-  "/works": "pages/works.js",
-  "/": "pages/index.js",
-  "/works/shipment-api": "pages/works/shipment-api.js"
+  "/": "pages/index.js"
 }

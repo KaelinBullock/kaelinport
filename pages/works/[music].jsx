@@ -14,9 +14,6 @@ import Layout from '../../components/layouts/generic-layout';
 const Music = () => {
    const { activeSong, searchTerm } = useSelector((state) => state.player);   
    return (
-
-      //just create search term here, so you can pick up on changes that are made.  The state doesn't need to exist everywhere.  It only needs to exists here.  Do it like you did it for the shipments api
-      //also look and see hos the song change is being handled for future reference
       <Layout title="Music" maxWidth='full' w='full'>
          
          <Container maxWidth='full' w='full'

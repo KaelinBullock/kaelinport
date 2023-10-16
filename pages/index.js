@@ -65,7 +65,9 @@ const Page = () => {
                      Work
                   </Heading>
                   <Paragraph>
-                  Howdy! I'm a dedicated full-stack developer from Little Rock, Arkansas, passionate about crafting seamless digital experiences. With expertise in Java and Typescript, I specialize in creating robust APIs. Whether it's back-end intricacies or front-end finesse, I've got you covered. Feel free to connect and explore my portfolio. Excited to bring your ideas to life!
+                  Howdy! I'm a dedicated full-stack developer from Little Rock, Arkansas, passionate about crafting seamless digital experiences. 
+                  With expertise in Java and Typescript, I specialize in creating robust APIs. Whether it's back-end intricacies or front-end finesse, 
+                  I've got you covered. Feel free to connect and explore my portfolio. Excited to bring your ideas to life!
                   </Paragraph>
                   <Box align='center' my={4} justifyContent="space-between">
                      <Link href='/works'       style={{ justifyContent: 'space-between', padding: '10px'}} justifyContent="space-between">
