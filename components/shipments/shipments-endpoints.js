@@ -29,6 +29,7 @@ const Endpoints = (props) => {
       let label = <GetLabel/>;
       switch(endpointNameValue) {
          case endpoints.GET_COMPANIES:
+            displayName = 'Companies';
             break;
          case endpoints.GET_COMPANY_BY_NAME:
             displayName = 'Company By Name';

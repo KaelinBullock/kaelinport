@@ -21,11 +21,10 @@ const ProfileImage = chakra(Image, {
  });
 
 const Page = () => {
-   // const placeholder = 'text to be copied...';
    const { onCopy, setValue, hasCopied } = useClipboard('');
 
    React.useEffect(() => {
-      setValue('bullockkaelin@gmail.com');
+      setValue('kaelin.bullock@gmail.com');
    }, []);
    
 
@@ -43,14 +42,14 @@ const Page = () => {
                textAlign="center"
             >
                   <Box
-                  borderColor="whiteAlpha.800"
-                  borderWidth={2}
-                  borderStyle="solid"
-                  w="100px"
-                  h="100px"
-                  display="inline-block"
-                  borderRadius="full"
-                  overflow="hidden"
+                     borderColor="whiteAlpha.800"
+                     borderWidth={2}
+                     borderStyle="solid"
+                     w="100px"
+                     h="100px"
+                     display="inline-block"
+                     borderRadius="full"
+                     overflow="hidden"
                   >
                      <ProfileImage
                      src="/images/kaelincrop.jpg"
@@ -66,50 +65,50 @@ const Page = () => {
                      Work
                   </Heading>
                   <Paragraph>
-                     Hello, I&#39;m a full stack developer, from Little Rock Arkansas.
-                     Feel Free to contact me. My focus is in back-end, but I can easily switch between back-end and front-end.
-                     My best skills are Java and Typescript.  I have created many APIs. Please take a look at my porfolio. <br/> My email: BullockKaelin@gmail.com
+                  Howdy! I'm a dedicated full-stack developer from Little Rock, Arkansas, passionate about crafting seamless digital experiences. With expertise in Java and Typescript, I specialize in creating robust APIs. Whether it's back-end intricacies or front-end finesse, I've got you covered. Feel free to connect and explore my portfolio. Excited to bring your ideas to life!
                   </Paragraph>
-                  <Box align='center' my={4}>
-                     <Link href='/works'>
-                        <Button rightIcon={<ChevronRightIcon />} colorScheme='teal'>
+                  <Box align='center' my={4} justifyContent="space-between">
+                     <Link href='/works'       style={{ justifyContent: 'space-between', padding: '10px'}} justifyContent="space-between">
+                        <Button rightIcon={<ChevronRightIcon />} colorScheme='teal' variant='outline'>
                            My Portfolio
                         </Button>
                      </Link>
+                     <Button onClick={onCopy} colorScheme='teal' variant='ghost' marginLeft={2}>
+                        {hasCopied ? 'Copied!' : 'My Email'}
+                     </Button>
                   </Box>
             </Section>
-
             <Section delay={0.2}>
                   <Heading as='h3' variant='section-title'>
                      Skills
                   </Heading>
                   <BioSection>
-                     <BioYear>Java</BioYear>
-                     My strongest skill. I have created many APIs
+                     <BioYear>Java</BioYear><br/>
+                     I have a solid background in Java, backed by 4+ years of hands-on experience and involvement in the creation of over 30 APIs.
                   </BioSection>
                   <BioSection>
-                     <BioYear>Spring</BioYear>
-                     The framework I am most familiar with.
+                     <BioYear>Spring</BioYear><br/>
+                     I'm well-versed in the Spring framework. Over 4 years of experience.
                   </BioSection>
                   <BioSection>
-                     <BioYear>Javascript</BioYear>
-                     Many years of experience with javascript and typescript
+                     <BioYear>Javascript / Typescript</BioYear><br/>
+                     I have 4+ years of experience in navigating JavaScript and TypeScript.
                   </BioSection>
                   <BioSection>
-                     <BioYear>Angular</BioYear>
-                     The front end framework I used for most of my career
+                     <BioYear>Angular</BioYear><br/>
+                     Over 4+ years, I've honed my skills in Angular, utilizing it effectively in various projects.
                   </BioSection>
                   <BioSection>
-                     <BioYear>React</BioYear>
-                     I prefer using React and NextJs for the front-end.  My portfolio projects use React.
+                     <BioYear>React</BioYear><br/>
+                     Among various front-end tools, React is my preferred choice, with 2+ years of work.
                   </BioSection>
                   <BioSection>
-                     <BioYear>SQL</BioYear>
-                     I have an understanding of SQL and have used it in many Java Spring projects
+                     <BioYear>SQL</BioYear><br/>
+                     I integrate SQL into most of my Java Spring APIs, ensuring robust and efficient data management.
                   </BioSection>
                   <BioSection>
-                     <BioYear>Misc</BioYear>
-                     I have a lot of experience in QA, creating tests, Unit Tests, Automated tests, debugging.
+                     <BioYear>Misc</BioYear><br/>
+                     My skills extend to quality assurance, encompassing QA, test creation, unit testing, automated tests, and adept debugging techniques.
                   </BioSection>
             </Section>
 
@@ -119,7 +118,7 @@ const Page = () => {
                   </Heading>
                   <BioSection>
                      <BioYear>1994</BioYear>
-                     Born in Little Rock, Arkansas
+                     Born in Little Rock, Arkansas (Not Our kansas)
                   </BioSection>
                   <BioSection>
                      <BioYear>2018</BioYear>
@@ -134,11 +133,6 @@ const Page = () => {
                      Started freelancing
                   </BioSection>
             </Section>
-            <Box align='center' my={4}>
-               <Button onClick={onCopy} colorScheme='teal'>
-                  {hasCopied ? 'Copied!' : 'My Email'}
-               </Button>
-            </Box>
          </Container>
       </Layout>
    );

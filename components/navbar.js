@@ -42,14 +42,33 @@ const MenuLink = forwardRef((props, ref) => (
 
 const Navbar = props => {
    const { path } = props;
+   const innerBoxStyles = {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      textAlign: 'center',
+      boxSize: 'full',
+      color: 'white',
+      textShadow: '0 0 20px black',
+      fontWeight: 'bold',
+      fontSize: '20px',
+    }
+    const outerBoxStyles = {
+      boxSize: '250px',
+      p: '10',
+      background:
+        'url(https://picsum.photos/id/1068/200/300) center/cover no-repeat',
+    }
    
    return (
       <Box 
          position="fixed"
          as="nav"
          w="100%"
-         bg={useColorModeValue('#ffffff40', '#202023')}
-         style={{backdropFilter: 'blur(10px)'}, {zIndex:'1'}}
+         bg={useColorModeValue('#ffffff40', '#20202300')}
+         backdropFilter='auto' backdropBlur='8px'
+         // blur='20px'
+         style={ {zIndex:'1'}}
          {...props}
       >
          <Container 
@@ -59,6 +78,7 @@ const Navbar = props => {
             wrap="wrap"
             align="center"
             justify="space-between"
+            backdropFilter='auto' backdropBlur='90px'
             
          >
             <Flex align="center" mr={5}>
@@ -86,7 +106,6 @@ const Navbar = props => {
                </LinkItem>
             </Stack>
 
-            {/* Not sure how it know s this is for mobile */}
             <Box flex={1} align="right"> 
                <ThemeToggleButton />
                <Box ml={2} display={{base: 'inline-block', md:'none'}}>

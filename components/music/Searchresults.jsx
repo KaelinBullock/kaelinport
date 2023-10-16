@@ -2,29 +2,25 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 
 import { useGetSongsBySearchQuery } from '../../redux/services/shazamCore';
-import { useRouter } from 'next/router';
-import Error from '../../components/music/Error';
-import Loader from '../../components/music/Loader';
-import SongCard from '../../components/music/SongCard';
+import Error from './Error';
+import Loader from './Loader';
+import SongCard from './SongCard';
 import { Box, Heading } from '@chakra-ui/react';
 
-const Search = () => {
-   
-  const router = useRouter();
-  const { search } = router.query;
+const Search = ({term}) => {
 
-  const { activeSong, isPlaying } = useSelector((state) => state.player);
-  const { data, isFetching, error } = useGetSongsBySearchQuery(search);
-
+  const { activeSong, isPlaying, searchTerm } = useSelector((state) => state.player);
+  const { data, isFetching, error } = useGetSongsBySearchQuery(searchTerm);
   const songs = data?.tracks?.hits.map((song) => song.track);
-
-  if (isFetching) return <Loader title={`Searching ${search}...`} />;
+  if (isFetching) return <Loader title={`Searching ${searchTerm}...`} />;
 
   if (error) return <Error />;
 
   return (
     <Box display='flex' flexDirection='column' className="flex flex-col">
-      <Heading as='h2' fontWeight='bold' fontSize='1.875rem' lineHeight='2.25rem' textAlign='left' mt={4} mb={10} className="font-bold text-3xl text-white text-left mt-4 mb-10">Showing results for <span className="font-black">{search}</span></Heading>
+      <Heading as='h2' fontWeight='bold' fontSize='1.875rem' lineHeight='2.25rem' textAlign='left' mt={4} mb={10} className="font-bold text-3xl text-white text-left mt-4 mb-10">
+        Showing Results: {term}
+        </Heading>
 
       <Box display='flex' flexWrap='wrap' justifyContent='center' gap={8} className="flex flex-wrap sm:justify-start justify-center gap-8">
         {songs.map((song, i) => (

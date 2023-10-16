@@ -1,6 +1,6 @@
 import Link from 'next/link';
-// import Image from 'next/image';
 import { Text, useColorModeValue } from '@chakra-ui/react';
+import BullIcon from './icons/bull.js'
 import styled from '@emotion/styled';
 
 const LogoBox = styled.span`
@@ -28,6 +28,7 @@ const Logo = () => {
     scroll={false}>
 
       <LogoBox >
+        <BullIcon />
         <Text
           color={useColorModeValue('gray.800', 'whiteAlpha.900')}
           fontFamily='M PLUS Rounded 1c", sans-serif'

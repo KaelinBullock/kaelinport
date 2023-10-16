@@ -12,11 +12,11 @@ import Searchresults from '../../components/music/SearchResults';
 import Layout from '../../components/layouts/generic-layout';
 
 const Music = () => {
-   const { activeSong, searchTerm } = useSelector((state) => state.player);
-   // const { searchTerm } = useSelector((stage) => state.player);
-   const [serchTermTemp] = React.useState(searchTerm);
-   
+   const { activeSong, searchTerm } = useSelector((state) => state.player);   
    return (
+
+      //just create search term here, so you can pick up on changes that are made.  The state doesn't need to exist everywhere.  It only needs to exists here.  Do it like you did it for the shipments api
+      //also look and see hos the song change is being handled for future reference
       <Layout title="Music" maxWidth='full' w='full'>
          
          <Container maxWidth='full' w='full'
@@ -30,12 +30,10 @@ const Music = () => {
          >
             <Searchbar />
             {!searchTerm ? (
-                  
             
             <Box position='relative' display='flex' maxWidth='full' w='full' mb={20} flexDir={{base:'column-reverse', sm:'row'}}>
                <Box maxWidth={{base:'100%', sm:'50%', lg:'75%'}}>
                   <Discover />
-                  {serchTermTemp}
                </Box>
                <Box 
                   flex='1 1 0%'
@@ -50,7 +48,8 @@ const Music = () => {
                   <TopPlay />
                </Box>
             </Box>
-            ) : <Searchresults />}
+            ) 
+            : <Searchresults term={searchTerm} />}
 
             {activeSong?.title && (
             <Box position='fixed' h={28} bottom={0} left={0} right={0} display='flex' maxWidth='full' w='full' bgGradient='linear(to-r, black, #383635)' backdropFilter='auto' backdropBlur='8px' roundedTop={10} overflow='hidden'>
