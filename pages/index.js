@@ -32,7 +32,7 @@ const Page = () => {
       <Layout>
          <Container pt={4}>
             <Box borderRadius="lg" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} p={3} mb={6} align="center">
-               Hello, I&apos;m a full-stack develooper based in the US!
+               Hello, I&apos;m a full-stack developer based in the US!
             </Box>
 
             <Box
