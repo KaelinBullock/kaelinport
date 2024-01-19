@@ -5,7 +5,7 @@ import NoSsr from '../no-ssr.js';
 
 const Layout = ({ children, router }) => {
   return (
-    <Box as="main" pb={8}>
+    <Box as="main" pb={8} px='8rem'>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <title>Kaelin&#39;s Homepage</title>
@@ -13,12 +13,14 @@ const Layout = ({ children, router }) => {
 
         <Navbar path={router.asPath} />
 
-        <Container maxW="full" pt={16}>
-          <NoSsr>
+        {/* <Container maxW="full" pt={16} pl={0}> */}
+          {/* <NoSsr> */}
               {/* <VoxelDog /> */}
-          </NoSsr>
+          {/* </NoSsr> */}
+          <Box pt={16}>
           {children}
-        </Container>
+          </Box>
+        {/* </Container> */}
 
     </Box>
   );

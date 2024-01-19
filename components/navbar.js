@@ -13,10 +13,12 @@ import {
    MenuList,
    IconButton,
    useColorModeValue,
-   MenuButton
+   MenuButton,
+   Text
 } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import ThemeToggleButton from './theme-toggle-button';
+import Layout from './layouts/article';
 
 const LinkItem = ({ href, path, children}) => {
    const active = path === href;
@@ -46,72 +48,56 @@ const Navbar = props => {
    return (
       <Box 
          position="fixed"
+         display='flex'
          as="nav"
          w="100%"
          bg={useColorModeValue('#ffffff40', '#20202300')}
-         backdropFilter='auto' backdropBlur='8px'
-         // blur='20px'
+         backdropFilter='auto'
+         backdropBlur='8px'
+         fontSize='18px'
+         fontFamily= 'Open Sans, sans-serif'
+         justifyContent='flex-end'
          style={ {zIndex:'1'}}
          {...props}
       >
          <Container 
             display="flex"
-            p={2} 
-            maxW="container.md"
+            pt={2} 
             wrap="wrap"
-            align="center"
             justify="space-between"
             backdropFilter='auto' backdropBlur='90px'
-            
+            maxW='full'
+            p={0}
          >
-            <Flex align="center" mr={5}>
+                              {/* <Logo /> */}
+
+            <Flex>
                <Heading as="h1" size="lg" letterSpacing={'tighter'}>
                   <Logo />
                </Heading>
             </Flex>
-            <Stack
-               direction={{base: 'coumn', md: 'row'}}
-               display={{base: 'none', md: 'flex'}}
-               width={{base: 'full', md: 'auto'}}
-               alignItems='center'
-               flexGrow={1}
-               mt={{ base: 4, md: 2 }}
-            >
-               <LinkItem 
-               href="/works"
-                path={path}>
-                  Works
-               </LinkItem>
-               <LinkItem 
-               href="https://github.com/KaelinBullock" 
-               path={path}>
-                  GIT
-               </LinkItem>
-            </Stack>
-
-            <Box flex={1} align="right"> 
-               <ThemeToggleButton />
-               <Box ml={2} display={{base: 'inline-block', md:'none'}}>
-                  <Menu>
-                     <MenuButton 
-                        as={IconButton} 
-                        icon={<HamburgerIcon />} 
-                        ariant="outline" 
-                        aria-label="Options" 
-                     />
-                     <MenuList>
-                        <MenuItem as={MenuLink} href='/' >About</MenuItem>
-                        <MenuItem as={MenuLink} href='/works'>Works</MenuItem>
-                        <MenuItem as={MenuLink} href="http://www.kaelinb.com">
-                           View Source
-                        </MenuItem>
-                     </MenuList>
-                  </Menu>
-               </Box>
-            </Box>
+            
          </Container>
       </Box>
    );
 };
+
+// const Navbar = props => {
+//    const { path } = props;
+
+//    return (
+//       <Layout>
+//          <Box
+//             fontFamily='Open Sans, sans-serif'
+//             fontSize='3rem'
+//             display='flex'
+//             flexDir='column'
+//             w='100%' 
+//          >
+//             <Text>tests</Text>
+//          </Box>
+//       </Layout>
+//    );
+// };
 
 export default Navbar;

@@ -7,7 +7,9 @@ import {
    useColorModeValue,
    chakra, 
    Link,
-   useClipboard
+   useClipboard,
+   Text,
+   AspectRatio
 } from '@chakra-ui/react';
 import Section from '../components/section.js';
 import Paragraph from '../components/paragraph.js';
@@ -30,12 +32,69 @@ const Page = () => {
 
    return (
       <Layout>
-         <Container pt={4}>
-            <Box borderRadius="lg" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} p={3} mb={6} align="center">
-               Hello, I&apos;m a full-stack developer based in the US!
+         <Container 
+            display="flex"
+            pt={2} 
+            wrap="wrap"
+            justify="space-between"
+            backdropFilter='auto' backdropBlur='90px'
+            maxW='full'
+            p={0}
+         >
+            <Box
+               fontFamily='Open Sans, sans-serif'
+               fontSize='3rem'
+               display='flex'
+               flexDir='column'
+               w='100%'  
+            >
+
+
+               <Box
+                  // pl='5rem'
+                  flex={1}
+                  w='100%'
+                  // backgroundColor='white'
+               >
+                  <Text>
+                     Fullstack | Developer
+                  </Text>
+               </Box>
+               <Box 
+                  display='flex'
+                  flex={1}
+                  // h='90vh'
+                  w='100%'
+                  // alignItems='center'
+                  // justifyItems='center'
+                  justifyContent='flex-end'
+                  pt='5rem'
+                  // backgroundColor='white'
+               >
+                  <AspectRatio maxW='full' ratio={16 / 9} flex={1}>
+                  <iframe 
+                     width="1000" 
+                     height="315"
+                     src="https://www.youtube.com/embed/ZVUyyHYkBHk?si=fEYSC7SPZhZuHHYM" 
+                     title="YouTube video player" 
+                     //  frameborder="0" 
+                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                     allowfullscreen>  
+                     </iframe>
+                  </AspectRatio>
+               </Box>
+               
             </Box>
 
-            <Box
+
+
+
+
+            {/* <Box borderRadius="lg" bg={useColorModeValue('whiteAlpha.500', 'whiteAlpha.200')} p={3} mb={6} align="center">
+               Hello, I&apos;m a full-stack developer based in the US!
+            </Box> */}
+
+            {/* <Box
                flexShrink={0}
                mt={{ base: 4, md: 0 }}
                ml={{ md: 6 }}
@@ -51,6 +110,8 @@ const Page = () => {
                      borderRadius="full"
                      overflow="hidden"
                   >
+
+                     
                      <ProfileImage
                      src="/images/kaelincrop.jpg"
                      alt="Profile image"
@@ -134,10 +195,36 @@ const Page = () => {
                      <BioYear>2022</BioYear>
                      Started freelancing
                   </BioSection>
-            </Section>
+            </Section> */}
          </Container>
       </Layout>
    );
 };
+
+// const Page = () => {
+//    const { onCopy, setValue, hasCopied } = useClipboard('');
+
+//    React.useEffect(() => {
+//       setValue('kaelin.bullock@gmail.com');
+//    }, [setValue]);
+   
+
+//    return (
+//       <Layout>
+//          <Layout>
+//          <Box
+//             fontFamily='Open Sans, sans-serif'
+//             fontSize='3rem'
+//             display='flex'
+//             flexDir='column'
+//             w='100%' 
+//          >
+//             <Text>tests</Text>
+//          </Box>
+//       </Layout>
+
+//       </Layout>
+//    );
+// };
 
 export default Page;
