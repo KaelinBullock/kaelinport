@@ -18,9 +18,9 @@ const SongCard = ({ song, isPlaying, activeSong, data, i }) => {
   };
 
   return (
-    <Box padding={4} display='flex' flexDir='column' w='250px' text={4} backgroundColor={useColorModeValue('#ffffff40','whiteAlpha.100')} borderRadius='.5rem' cursor='pointer'>
+    <Box padding={4} display='flex' flexDir='column'  w='250px' text={4} backgroundColor={useColorModeValue('#ffffff40','whiteAlpha.100')} borderRadius='.5rem' cursor='pointer'>
       <Box position='relative' w='full' h='14rem' _groupActive={true} className="relative w-full h-56 group">
-        <Box position='absolute' inset={0} justifyContent='center' alignItems='center' backgroundColor='black' opacity='.75' display='none' sx={activeSong?.title === song?.title ? {display:'flex'} : {display: 'none', _groupHover:{display:'flex'}}} _groupHover={{display:'flex'}} >
+        <Box position='absolute' inset={0} justifyContent='center' alignItems='center' backgroundColor={useColorModeValue('white','black')} opacity='.75' rounded='.5rem' display='none' sx={activeSong?.title === song?.title ? {display:'flex'} : {display: 'none', _groupHover:{display:'flex'}}} _groupHover={{display:'flex'}} >
           <PlayPause
             isPlaying={isPlaying}
             activeSong={activeSong}

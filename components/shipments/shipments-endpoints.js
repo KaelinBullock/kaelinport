@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react';
+import { Box, useColorModeValue } from '@chakra-ui/react';
 
 import {
    Accordion,
@@ -59,7 +59,7 @@ const Endpoints = (props) => {
        }
 
       return (
-         <AccordionPanel pl={8} pb={4}  style={currentEndpoint === endpointNameValue ? {backgroundColor:'#4c426e'} : {backgroundColor:'transparent'}}>
+         <AccordionPanel h='100%' display='flex' alignContent='center' alignItems='center' verticalAlign='center' pl={8} textAlign='center' style={currentEndpoint === endpointNameValue ? useColorModeValue({backgroundColor:'#f2eee6'}, {backgroundColor:'#4c426e'},) : {backgroundColor:'transparent'}}>
             <Box onClick={() => ChooseEndpoint(endpointNameValue, props, setCurrentEndpoint )}> {label} {displayName} </Box>
          </AccordionPanel>
       );
@@ -67,7 +67,7 @@ const Endpoints = (props) => {
 
 
    return (
-      <Accordion defaultIndex={[0]} allowMultiple>
+      <Accordion borderColor={useColorModeValue('gray.700','gray.200')} defaultIndex={[0]} allowMultiple>
          <AccordionItem cursor='pointer'>
             <h2>
                <AccordionButton>
@@ -82,7 +82,7 @@ const Endpoints = (props) => {
             <EndpointPanel endpointName={endpoints.SAVE_COMPANY}/>
          </AccordionItem>
 
-         <AccordionItem>
+         <AccordionItem cursor='pointer'>
             <h2>
                <AccordionButton>
                <Box as="span" flex='1' textAlign='left'>
@@ -95,7 +95,8 @@ const Endpoints = (props) => {
             <EndpointPanel endpointName={endpoints.GET_LOCATION_BY_NAME}/>
             <EndpointPanel endpointName={endpoints.SAVE_LOCATION}/>
          </AccordionItem>
-         <AccordionItem>
+
+         <AccordionItem cursor='pointer'>
             <h2>
                <AccordionButton>
                <Box as="span" flex='1' textAlign='left'>

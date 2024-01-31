@@ -18,7 +18,7 @@ const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handle
       background: '#4c426e',
       color: 'teal.500',
     }} 
-    style={activeSong?.title === song?.title ? {backgroundColor:'#4c426e'} : {backgroundColor:'transparent'}}
+    style={activeSong?.title === song?.title ? useColorModeValue({backgroundColor:'#7c60ce'},{backgroundColor:'#4c426e'}) : {backgroundColor:'transparent'}}
     py={2}
     p={4}
     borderRadius='.5rem'

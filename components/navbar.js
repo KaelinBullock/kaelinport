@@ -61,7 +61,6 @@ const Navbar = props => {
             wrap="wrap"
             align="center"
             justify="space-between"
-            backdropFilter='auto' backdropBlur='90px'
             
          >
             <Flex align="center" mr={5}>
