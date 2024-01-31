@@ -24,6 +24,7 @@ const Endpoints = (props) => {
 
     function EndpointPanel(endpointName) {
       const endpointNameValue = Object.values(endpointName)[0];
+      const colorMode = useColorModeValue('#7c60ce', '#4c426e');
       
       let displayName = 'Company';
       let label = <GetLabel/>;
@@ -57,9 +58,6 @@ const Endpoints = (props) => {
          default:
             return;
        }
-
-      const colorMode = useColorModeValue({backgroundColor:'#7c60ce'},{backgroundColor:'#4c426e'});
-
 
       return (
          <AccordionPanel h='100%' display='flex' alignContent='center' alignItems='center' verticalAlign='center' pl={8} textAlign='center' style={ {backgroundColor: currentEndpoint === endpointNameValue ? colorMode : 'transparent'}}>
