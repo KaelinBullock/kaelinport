@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Container, Heading, Box, Textarea, Button, useDisclosure, Collapse } from '@chakra-ui/react';
+import { Container, Heading, Box, Textarea, Button, useDisclosure, Collapse, useColorModeValue } from '@chakra-ui/react';
 
 import Endpoints from '../../components/shipments/shipments-endpoints';
 
@@ -134,7 +134,7 @@ const Shipment = () => {
                      <Button colorScheme='blue' onClick={sendPayload}>Send</Button>
                   </Box>
                   <Box pl={4} h='300px' w='full'>
-                     <Textarea value={JSON.stringify(response, null, '\t')} readOnly cursor='default' h='290px' w='full'>
+                     <Textarea borderColor={useColorModeValue('blackAlpha.500', 'gray.500')} value={JSON.stringify(response, null, '\t')} readOnly cursor='default' h='290px' w='full'>
                      </Textarea>
                   </Box>
                </Box>
