@@ -46,7 +46,7 @@ const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handle
       handlePlay={handlePlayClick}
     />
   </Box>
-  )
+  );
 };
 
 const validateSongData = () => {
