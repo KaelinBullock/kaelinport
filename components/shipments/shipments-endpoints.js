@@ -58,10 +58,10 @@ const Endpoints = (props) => {
             return;
        }
 
-      const colorMode = useColorModeValue({backgroundColor:'#7c60ce'}, {backgroundColor:'#4c426e'});
+      const colorMode = useColorModeValue('#7c60ce', '#4c426e');
 
       return (
-         <AccordionPanel h='100%' display='flex' alignContent='center' alignItems='center' verticalAlign='center' pl={8} textAlign='center' style={currentEndpoint === endpointNameValue ? colorMode : {backgroundColor:'transparent'}}>
+         <AccordionPanel h='100%' display='flex' alignContent='center' alignItems='center' verticalAlign='center' pl={8} textAlign='center' style={ {backgroundColor: currentEndpoint === endpointNameValue ? colorMode : 'transparent'}}>
             <Box onClick={() => ChooseEndpoint(endpointNameValue, props, setCurrentEndpoint )}> {label} {displayName} </Box>
          </AccordionPanel>
       );
