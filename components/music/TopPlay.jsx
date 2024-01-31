@@ -8,7 +8,12 @@ import { useGetTopChartsQuery } from '../../redux/services/shazamCore';
 
 import { Box, Heading, Image, Text, useColorModeValue } from '@chakra-ui/react';
 
-const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handlePlayClick }) => (
+
+const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handlePlayClick }) => {
+
+  const colorMode = useColorModeValue({backgroundColor:'#7c60ce'},{backgroundColor:'#4c426e'});
+
+  return (
   <Box 
     w='full' 
     display='flex' 
@@ -18,7 +23,7 @@ const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handle
       background: '#4c426e',
       color: 'teal.500',
     }} 
-    style={activeSong?.title === song?.title ? useColorModeValue({backgroundColor:'#7c60ce'},{backgroundColor:'#4c426e'}) : {backgroundColor:'transparent'}}
+    style={activeSong?.title === song?.title ? colorMode : {backgroundColor:'transparent'}}
     py={2}
     p={4}
     borderRadius='.5rem'
@@ -41,7 +46,8 @@ const TopChartCard = ({ song, i, isPlaying, activeSong, handlePauseClick, handle
       handlePlay={handlePlayClick}
     />
   </Box>
-);
+  )
+};
 
 const validateSongData = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
